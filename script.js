@@ -47,9 +47,17 @@ const mensajes = [
 const popup = document.getElementById("popup");
 const mensaje = document.getElementById("mensaje");
 
+let ultimoIndice = -1;
+
 function mostrarPopup() {
-  const texto = mensajes[Math.floor(Math.random() * mensajes.length)];
-  mensaje.textContent = texto;
+  let indice;
+
+  do {
+    indice = Math.floor(Math.random() * mensajes.length);
+  } while (indice === ultimoIndice);
+
+  ultimoIndice = indice;
+  mensaje.textContent = mensajes[indice];
 
   popup.classList.add("show");
 
