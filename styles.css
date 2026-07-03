@@ -108,3 +108,41 @@ body{
     margin-top:10px;
     font-weight:bold;
 }
+
+.popup{
+    position:fixed;
+    left:20px;
+    bottom:20px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    background:#ffffff;
+    padding:14px 18px;
+    border-radius:16px;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+    border:1px solid #e5e5e5;
+    max-width:320px;
+    z-index:9999;
+    transform:translateY(150%);
+    transition:transform .5s ease;
+}
+
+.popup.show{
+    transform:translateY(0);
+}
+
+.popup-logo{
+    font-size:28px;
+}
+
+.popup strong{
+    display:block;
+    color:#d60000;
+    margin-bottom:4px;
+}
+
+.popup p{
+    margin:0;
+    color:#333;
+    font-size:14px;
+}
