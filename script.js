@@ -72,94 +72,62 @@ setInterval(mostrarPopup, 10000);
 
 // ===== ESTADO DE SUCURSALES =====
 
-function ponerEstado(id, abierto, texto){
-
+function ponerEstado(id, abierto, texto) {
     const e = document.getElementById(id);
-
-    if(!e) return;
+    if (!e) return;
 
     e.innerHTML = texto;
-
-    if(abierto){
-        e.className = "estado abierto";
-    }else{
-        e.className = "estado cerrado";
-    }
-
+    e.className = abierto ? "estado abierto" : "estado cerrado";
 }
 
-function actualizarEstados(){
+function actualizarEstados() {
 
     const ahora = new Date();
-
     const dia = ahora.getDay();
     const hora = ahora.getHours();
 
     let abierto = false;
-    let texto = "";
+    let mensaje = "";
 
-    // Lunes a Viernes
-    if(dia >= 1 && dia <= 5){
+    if (dia >= 1 && dia <= 5) {
 
-        abierto = (hora >= 8 && hora < 19);
-        texto = abierto
+        abierto = hora >= 8 && hora < 19;
+        mensaje = abierto
             ? "🟢 Abierto, cierra a las 7:00 PM"
-            : "🔴 Cerrado";
+            : "🔴 Cerrado · Abre a las 8:00 AM";
 
-        ponerEstado("estado-texcoco",abierto,texto);
-        ponerEstado("estado-chicoloapan",abierto,texto);
-        ponerEstado("estado-central",abierto,texto);
-        ponerEstado("estado-santarosa",abierto,texto);
-        ponerEstado("estado-neza",abierto,texto);
-        ponerEstado("estado-losreyes",abierto,texto);
-        ponerEstado("estado-ixtapaluca",abierto,texto);
-        ponerEstado("estado-chimalhuacan",abierto,texto);
+    } else if (dia === 6) {
 
-    }
-
-    // Sábado
-    else if(dia == 6){
-
-        abierto = (hora >= 9 && hora < 18);
-        texto = abierto
+        abierto = hora >= 9 && hora < 18;
+        mensaje = abierto
             ? "🟢 Abierto, cierra a las 6:00 PM"
-            : "🔴 Cerrado";
+            : "🔴 Cerrado · Abre a las 9:00 AM";
 
-        ponerEstado("estado-texcoco",abierto,texto);
-        ponerEstado("estado-chicoloapan",abierto,texto);
-        ponerEstado("estado-central",abierto,texto);
-        ponerEstado("estado-santarosa",abierto,texto);
-        ponerEstado("estado-neza",abierto,texto);
-        ponerEstado("estado-losreyes",abierto,texto);
-        ponerEstado("estado-ixtapaluca",abierto,texto);
-        ponerEstado("estado-chimalhuacan",abierto,texto);
+    } else {
 
-    }
-
-    // Domingo
-    else{
-
-        // Todas excepto Central de Abastos
-        abierto = (hora >= 9 && hora < 15);
-        texto = abierto
+        abierto = hora >= 9 && hora < 15;
+        mensaje = abierto
             ? "🟢 Abierto, cierra a las 3:00 PM"
             : "🔴 Cerrado";
 
-        ponerEstado("estado-texcoco",abierto,texto);
-        ponerEstado("estado-chicoloapan",abierto,texto);
-        ponerEstado("estado-santarosa",abierto,texto);
-        ponerEstado("estado-neza",abierto,texto);
-        ponerEstado("estado-losreyes",abierto,texto);
-        ponerEstado("estado-ixtapaluca",abierto,texto);
-        ponerEstado("estado-chimalhuacan",abierto,texto);
+    }
 
-        // Central de Abastos permanece cerrada los domingos
-        ponerEstado("estado-central",false,"🔴 Cerrado hoy");
+    ponerEstado("estado-texcoco", abierto, mensaje);
+    ponerEstado("estado-chicoloapan", abierto, mensaje);
+    ponerEstado("estado-santarosa", abierto, mensaje);
+    ponerEstado("estado-neza", abierto, mensaje);
+    ponerEstado("estado-losreyes", abierto, mensaje);
+    ponerEstado("estado-ixtapaluca", abierto, mensaje);
+    ponerEstado("estado-chimalhuacan", abierto, mensaje);
 
+    // Central de Abastos
+    if (dia === 0) {
+        ponerEstado("estado-central", false, "🔴 Cerrado hoy");
+    } else {
+        ponerEstado("estado-central", abierto, mensaje);
     }
 
 }
 
 actualizarEstados();
-
-setInterval(actualizarEstados,60000);
+setInterval(actualizarEstados, 60000);
