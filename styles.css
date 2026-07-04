@@ -1,12 +1,18 @@
 *{
     box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-    margin:0;
     font-family:Arial,sans-serif;
     background:#ffffff;
     color:#1a1a1a;
+    line-height:1.5;
 }
 
 .hero{
@@ -18,6 +24,7 @@ body{
 
 .logo{
     width:140px;
+    max-width:100%;
 }
 
 .promo{
@@ -37,30 +44,40 @@ body{
     border-radius:12px;
     text-decoration:none;
     font-weight:bold;
+    transition:.25s;
+}
+
+.btn:hover{
+    transform:scale(1.03);
 }
 
 .titulo{
     text-align:center;
     color:#d60000;
+    margin:35px 0 20px;
 }
 
 .card{
     display:block;
     text-decoration:none;
     color:#1a1a1a;
-    background:#ffffff;
+    background:#fff;
     margin:18px;
     padding:22px;
     border-radius:18px;
-    transition:.2s;
+    transition:.25s;
     border:1px solid #e5e5e5;
     box-shadow:0 4px 12px rgba(0,0,0,.08);
 }
 
 .card:hover,
 .card:active{
-    transform:scale(1.02);
-    box-shadow:0 8px 20px rgba(0,0,0,.12);
+    transform:translateY(-3px);
+    box-shadow:0 10px 24px rgba(0,0,0,.15);
+}
+
+.card h3{
+    margin-bottom:8px;
 }
 
 .card span{
@@ -70,11 +87,11 @@ body{
     margin-top:10px;
 }
 
-    .float{
+.float{
     position:fixed;
     right:20px;
-    bottom:180px;
-    background:#d60000;
+    bottom:20px;
+    background:#25D366;
     color:#fff;
     text-decoration:none;
     padding:16px 20px;
@@ -82,21 +99,16 @@ body{
     font-weight:bold;
     box-shadow:0 8px 20px rgba(0,0,0,.25);
     z-index:9998;
-    transition:.25s ease;
+    transition:.25s;
 }
 
 .float:hover{
-    transform:scale(1.05);
+    transform:scale(1.08);
 }
 
 .upcoming{
     border:2px dashed #d60000;
     background:#fafafa;
-}
-
-.upcoming:hover{
-    transform:scale(1.02);
-    background:#f2f2f2;
 }
 
 .badge{
@@ -109,21 +121,14 @@ body{
     margin:10px 0;
 }
 
-.upcoming span{
-    display:block;
-    color:#d60000;
-    margin-top:10px;
-    font-weight:bold;
-}
-
 .popup{
     position:fixed;
     left:20px;
-    bottom:20px;
+    bottom:90px;
     display:flex;
     align-items:center;
     gap:12px;
-    background:#ffffff;
+    background:#fff;
     padding:14px 18px;
     border-radius:16px;
     box-shadow:0 10px 25px rgba(0,0,0,.15);
@@ -154,12 +159,10 @@ body{
     font-size:14px;
 }
 
-/* ===== Estado de sucursal ===== */
-
 .estado{
     margin:10px 0 12px;
     padding:10px 14px;
-    border-radius:10px;
+    border-radius:12px;
     font-size:14px;
     font-weight:bold;
     display:inline-block;
@@ -181,4 +184,33 @@ body{
     background:#fff3cd;
     color:#856404;
     border:1px solid #ffe08a;
+}
+
+@media(max-width:600px){
+
+.hero{
+    padding:30px 15px;
+}
+
+.logo{
+    width:120px;
+}
+
+.card{
+    margin:12px;
+    padding:18px;
+}
+
+.popup{
+    left:10px;
+    right:10px;
+    bottom:85px;
+    max-width:none;
+}
+
+.float{
+    right:15px;
+    bottom:15px;
+}
+
 }
