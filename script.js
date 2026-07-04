@@ -93,93 +93,68 @@ function actualizarEstados(){
     const ahora = new Date();
 
     const dia = ahora.getDay();
-
     const hora = ahora.getHours();
 
+    let abierto = false;
+    let texto = "";
+
     // Lunes a Viernes
-    if(dia >=1 && dia <=5){
+    if(dia >= 1 && dia <= 5){
 
-        if(hora >=8 && hora <19){
+        abierto = (hora >= 8 && hora < 19);
+        texto = abierto
+            ? "🟢 Abierto, cierra a las 7:00 PM"
+            : "🔴 Cerrado";
 
-            ponerEstado("estado-texcoco",true,"🟢 Abierto ahora");
-            ponerEstado("estado-chicoloapan",true,"🟢 Abierto ahora");
-            ponerEstado("estado-central",true,"🟢 Abierto ahora");
-            ponerEstado("estado-santarosa",true,"🟢 Abierto ahora");
-            ponerEstado("estado-neza",true,"🟢 Abierto ahora");
-            ponerEstado("estado-losreyes",true,"🟢 Abierto ahora");
-            ponerEstado("estado-ixtapaluca",true,"🟢 Abierto ahora");
-            ponerEstado("estado-chimalhuacan",true,"🟢 Abierto ahora");
-
-        }else{
-
-            ponerEstado("estado-texcoco",false,"🔴 Cerrado");
-            ponerEstado("estado-chicoloapan",false,"🔴 Cerrado");
-            ponerEstado("estado-central",false,"🔴 Cerrado");
-            ponerEstado("estado-santarosa",false,"🔴 Cerrado");
-            ponerEstado("estado-neza",false,"🔴 Cerrado");
-            ponerEstado("estado-losreyes",false,"🔴 Cerrado");
-            ponerEstado("estado-ixtapaluca",false,"🔴 Cerrado");
-            ponerEstado("estado-chimalhuacan",false,"🔴 Cerrado");
-
-        }
+        ponerEstado("estado-texcoco",abierto,texto);
+        ponerEstado("estado-chicoloapan",abierto,texto);
+        ponerEstado("estado-central",abierto,texto);
+        ponerEstado("estado-santarosa",abierto,texto);
+        ponerEstado("estado-neza",abierto,texto);
+        ponerEstado("estado-losreyes",abierto,texto);
+        ponerEstado("estado-ixtapaluca",abierto,texto);
+        ponerEstado("estado-chimalhuacan",abierto,texto);
 
     }
 
     // Sábado
-    else if(dia==6){
+    else if(dia == 6){
 
-        if(hora>=9 && hora<18){
+        abierto = (hora >= 9 && hora < 18);
+        texto = abierto
+            ? "🟢 Abierto, cierra a las 6:00 PM"
+            : "🔴 Cerrado";
 
-            ponerEstado("estado-texcoco",true,"🟢 Abierto ahora");
-            ponerEstado("estado-chicoloapan",true,"🟢 Abierto ahora");
-            ponerEstado("estado-central",true,"🟢 Abierto ahora");
-            ponerEstado("estado-santarosa",true,"🟢 Abierto ahora");
-            ponerEstado("estado-neza",true,"🟢 Abierto ahora");
-            ponerEstado("estado-losreyes",true,"🟢 Abierto ahora");
-            ponerEstado("estado-ixtapaluca",true,"🟢 Abierto ahora");
-            ponerEstado("estado-chimalhuacan",true,"🟢 Abierto ahora");
-
-        }else{
-
-            ponerEstado("estado-texcoco",false,"🔴 Cerrado");
-            ponerEstado("estado-chicoloapan",false,"🔴 Cerrado");
-            ponerEstado("estado-central",false,"🔴 Cerrado");
-            ponerEstado("estado-santarosa",false,"🔴 Cerrado");
-            ponerEstado("estado-neza",false,"🔴 Cerrado");
-            ponerEstado("estado-losreyes",false,"🔴 Cerrado");
-            ponerEstado("estado-ixtapaluca",false,"🔴 Cerrado");
-            ponerEstado("estado-chimalhuacan",false,"🔴 Cerrado");
-
-        }
+        ponerEstado("estado-texcoco",abierto,texto);
+        ponerEstado("estado-chicoloapan",abierto,texto);
+        ponerEstado("estado-central",abierto,texto);
+        ponerEstado("estado-santarosa",abierto,texto);
+        ponerEstado("estado-neza",abierto,texto);
+        ponerEstado("estado-losreyes",abierto,texto);
+        ponerEstado("estado-ixtapaluca",abierto,texto);
+        ponerEstado("estado-chimalhuacan",abierto,texto);
 
     }
 
     // Domingo
     else{
 
-        if(hora>=9 && hora<15){
+        // Todas excepto Central de Abastos
+        abierto = (hora >= 9 && hora < 15);
+        texto = abierto
+            ? "🟢 Abierto, cierra a las 3:00 PM"
+            : "🔴 Cerrado";
 
-            ponerEstado("estado-texcoco",true,"🟢 Abierto ahora");
-            ponerEstado("estado-chicoloapan",true,"🟢 Abierto ahora");
-            ponerEstado("estado-central",false,"🔴 Cerrado hoy");
-            ponerEstado("estado-santarosa",true,"🟢 Abierto ahora");
-            ponerEstado("estado-neza",true,"🟢 Abierto ahora");
-            ponerEstado("estado-losreyes",true,"🟢 Abierto ahora");
-            ponerEstado("estado-ixtapaluca",true,"🟢 Abierto ahora");
-            ponerEstado("estado-chimalhuacan",true,"🟢 Abierto ahora");
+        ponerEstado("estado-texcoco",abierto,texto);
+        ponerEstado("estado-chicoloapan",abierto,texto);
+        ponerEstado("estado-santarosa",abierto,texto);
+        ponerEstado("estado-neza",abierto,texto);
+        ponerEstado("estado-losreyes",abierto,texto);
+        ponerEstado("estado-ixtapaluca",abierto,texto);
+        ponerEstado("estado-chimalhuacan",abierto,texto);
 
-        }else{
-
-            ponerEstado("estado-texcoco",false,"🔴 Cerrado");
-            ponerEstado("estado-chicoloapan",false,"🔴 Cerrado");
-            ponerEstado("estado-central",false,"🔴 Cerrado hoy");
-            ponerEstado("estado-santarosa",false,"🔴 Cerrado");
-            ponerEstado("estado-neza",false,"🔴 Cerrado");
-            ponerEstado("estado-losreyes",false,"🔴 Cerrado");
-            ponerEstado("estado-ixtapaluca",false,"🔴 Cerrado");
-            ponerEstado("estado-chimalhuacan",false,"🔴 Cerrado");
-
-        }
+        // Central de Abastos permanece cerrada los domingos
+        ponerEstado("estado-central",false,"🔴 Cerrado hoy");
 
     }
 
