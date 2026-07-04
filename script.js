@@ -50,115 +50,144 @@ const mensaje = document.getElementById("mensaje");
 let ultimoIndice = -1;
 
 function mostrarPopup() {
-  let indice;
+    let indice;
 
-  do {
-    indice = Math.floor(Math.random() * mensajes.length);
-  } while (indice === ultimoIndice);
+    do {
+        indice = Math.floor(Math.random() * mensajes.length);
+    } while (indice === ultimoIndice);
 
-  ultimoIndice = indice;
-  mensaje.textContent = mensajes[indice];
+    ultimoIndice = indice;
+    mensaje.textContent = mensajes[indice];
 
-  popup.classList.add("show");
+    popup.classList.add("show");
 
-  setTimeout(() => {
-    popup.classList.remove("show");
-  }, 4000);
+    setTimeout(() => {
+        popup.classList.remove("show");
+    }, 4000);
 }
 
 setTimeout(mostrarPopup, 3000);
 setInterval(mostrarPopup, 10000);
 
+
 // ===== ESTADO DE SUCURSALES =====
 
-function actualizarEstados() {
+function ponerEstado(id, abierto, texto){
+
+    const e = document.getElementById(id);
+
+    if(!e) return;
+
+    e.innerHTML = texto;
+
+    if(abierto){
+        e.className = "estado abierto";
+    }else{
+        e.className = "estado cerrado";
+    }
+
+}
+
+function actualizarEstados(){
 
     const ahora = new Date();
-    const dia = ahora.getDay(); // 0=Domingo, 1=Lunes...
+
+    const dia = ahora.getDay();
+
     const hora = ahora.getHours();
-    const minuto = ahora.getMinutes();
-    const horaActual = hora + (minuto / 60);
 
-    const sucursales = [
-        { id: "estado-texcoco", domingo: true },
-        { id: "estado-chicoloapan", domingo: true },
-        { id: "estado-central", domingo: false },
-        { id: "estado-santarosa", domingo: true },
-        { id: "estado-neza", domingo: true },
-        { id: "estado-losreyes", domingo: true },
-        { id: "estado-ixtapaluca", domingo: true },
-        { id: "estado-chimalhuacan", domingo: true }
-    ];
+    // Lunes a Viernes
+    if(dia >=1 && dia <=5){
 
-    sucursales.forEach(sucursal => {
+        if(hora >=8 && hora <19){
 
-        const estado = document.getElementById(sucursal.id);
-        if (!estado) return;
+            ponerEstado("estado-texcoco",true,"🟢 Abierto ahora");
+            ponerEstado("estado-chicoloapan",true,"🟢 Abierto ahora");
+            ponerEstado("estado-central",true,"🟢 Abierto ahora");
+            ponerEstado("estado-santarosa",true,"🟢 Abierto ahora");
+            ponerEstado("estado-neza",true,"🟢 Abierto ahora");
+            ponerEstado("estado-losreyes",true,"🟢 Abierto ahora");
+            ponerEstado("estado-ixtapaluca",true,"🟢 Abierto ahora");
+            ponerEstado("estado-chimalhuacan",true,"🟢 Abierto ahora");
 
-        let abierto = false;
-        let mensaje = "";
+        }else{
 
-        if (dia >= 1 && dia <= 5) {
-            abierto = horaActual >= 8 && horaActual < 19;
-
-            if (abierto) {
-                mensaje = "🟢 Abierto ahora<br><small>Cierra hoy a las 7:00 p.m.</small>";
-            } else if (horaActual < 8) {
-                mensaje = "🔴 Cerrado<br><small>Abre hoy a las 8:00 a.m.</small>";
-            } else {
-                mensaje = "🔴 Cerrado<br><small>Abre mañana a las 8:00 a.m.</small>";
-            }
-
-        } else if (dia === 6) {
-
-            abierto = horaActual >= 9 && horaActual < 18;
-
-            if (abierto) {
-                mensaje = "🟢 Abierto ahora<br><small>Cierra hoy a las 6:00 p.m.</small>";
-            } else if (horaActual < 9) {
-                mensaje = "🔴 Cerrado<br><small>Abre hoy a las 9:00 a.m.</small>";
-            } else {
-                if (sucursal.domingo) {
-                    mensaje = "🔴 Cerrado<br><small>Abre mañana a las 9:00 a.m.</small>";
-                } else {
-                    mensaje = "🔴 Cerrado<br><small>Abre el lunes a las 8:00 a.m.</small>";
-                }
-            }
-
-        } else {
-
-            if (!sucursal.domingo) {
-
-                mensaje = "🔴 Cerrado hoy<br><small>Abrimos el lunes a las 8:00 a.m.</small>";
-                abierto = false;
-
-            } else {
-
-                abierto = horaActual >= 9 && horaActual < 15;
-
-                if (abierto) {
-                    mensaje = "🟢 Abierto ahora<br><small>Cierra hoy a las 3:00 p.m.</small>";
-                } else if (horaActual < 9) {
-                    mensaje = "🔴 Cerrado<br><small>Abre hoy a las 9:00 a.m.</small>";
-                } else {
-                    mensaje = "🔴 Cerrado<br><small>Abre mañana a las 8:00 a.m.</small>";
-                }
-
-            }
+            ponerEstado("estado-texcoco",false,"🔴 Cerrado");
+            ponerEstado("estado-chicoloapan",false,"🔴 Cerrado");
+            ponerEstado("estado-central",false,"🔴 Cerrado");
+            ponerEstado("estado-santarosa",false,"🔴 Cerrado");
+            ponerEstado("estado-neza",false,"🔴 Cerrado");
+            ponerEstado("estado-losreyes",false,"🔴 Cerrado");
+            ponerEstado("estado-ixtapaluca",false,"🔴 Cerrado");
+            ponerEstado("estado-chimalhuacan",false,"🔴 Cerrado");
 
         }
 
-        estado.innerHTML = mensaje;
-        estado.className = abierto ? "estado abierto" : "estado cerrado";
+    }
 
-    });
+    // Sábado
+    else if(dia==6){
+
+        if(hora>=9 && hora<18){
+
+            ponerEstado("estado-texcoco",true,"🟢 Abierto ahora");
+            ponerEstado("estado-chicoloapan",true,"🟢 Abierto ahora");
+            ponerEstado("estado-central",true,"🟢 Abierto ahora");
+            ponerEstado("estado-santarosa",true,"🟢 Abierto ahora");
+            ponerEstado("estado-neza",true,"🟢 Abierto ahora");
+            ponerEstado("estado-losreyes",true,"🟢 Abierto ahora");
+            ponerEstado("estado-ixtapaluca",true,"🟢 Abierto ahora");
+            ponerEstado("estado-chimalhuacan",true,"🟢 Abierto ahora");
+
+        }else{
+
+            ponerEstado("estado-texcoco",false,"🔴 Cerrado");
+            ponerEstado("estado-chicoloapan",false,"🔴 Cerrado");
+            ponerEstado("estado-central",false,"🔴 Cerrado");
+            ponerEstado("estado-santarosa",false,"🔴 Cerrado");
+            ponerEstado("estado-neza",false,"🔴 Cerrado");
+            ponerEstado("estado-losreyes",false,"🔴 Cerrado");
+            ponerEstado("estado-ixtapaluca",false,"🔴 Cerrado");
+            ponerEstado("estado-chimalhuacan",false,"🔴 Cerrado");
+
+        }
+
+    }
+
+    // Domingo
+    else{
+
+        if(hora>=9 && hora<15){
+
+            ponerEstado("estado-texcoco",true,"🟢 Abierto ahora");
+            ponerEstado("estado-chicoloapan",true,"🟢 Abierto ahora");
+            ponerEstado("estado-central",false,"🔴 Cerrado hoy");
+            ponerEstado("estado-santarosa",true,"🟢 Abierto ahora");
+            ponerEstado("estado-neza",true,"🟢 Abierto ahora");
+            ponerEstado("estado-losreyes",true,"🟢 Abierto ahora");
+            ponerEstado("estado-ixtapaluca",true,"🟢 Abierto ahora");
+            ponerEstado("estado-chimalhuacan",true,"🟢 Abierto ahora");
+
+        }else{
+
+            ponerEstado("estado-texcoco",false,"🔴 Cerrado");
+            ponerEstado("estado-chicoloapan",false,"🔴 Cerrado");
+            ponerEstado("estado-central",false,"🔴 Cerrado hoy");
+            ponerEstado("estado-santarosa",false,"🔴 Cerrado");
+            ponerEstado("estado-neza",false,"🔴 Cerrado");
+            ponerEstado("estado-losreyes",false,"🔴 Cerrado");
+            ponerEstado("estado-ixtapaluca",false,"🔴 Cerrado");
+            ponerEstado("estado-chimalhuacan",false,"🔴 Cerrado");
+
+        }
+
+    }
 
 }
 
 actualizarEstados();
 
-// Actualiza cada minuto
-setInterval(actualizarEstados, 60000);
+setInterval(actualizarEstados,60000);
 
 console.log("Estados cargados");
 alert("Estados cargados");
