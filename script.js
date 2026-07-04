@@ -188,6 +188,3 @@ function actualizarEstados(){
 actualizarEstados();
 
 setInterval(actualizarEstados,60000);
-
-console.log("Estados cargados");
-alert("Estados cargados");
