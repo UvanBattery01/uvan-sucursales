@@ -214,3 +214,120 @@ body{
 }
 
 }
+
+/* ========= ESTADO PREMIUM ========= */
+
+.estado{
+    margin:12px 0;
+    padding:14px 16px;
+    border-radius:16px;
+    display:block;
+    border:1px solid #e9e9e9;
+    background:#fff;
+}
+
+.estado-box{
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+}
+
+.estado-dot{
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    margin-top:6px;
+    flex-shrink:0;
+}
+
+.estado-box strong{
+    display:block;
+    font-size:15px;
+    font-weight:700;
+    margin-bottom:3px;
+}
+
+.estado-box small{
+    display:block;
+    font-size:13px;
+    color:#666;
+    font-weight:500;
+}
+
+/* ===== ABIERTO ===== */
+
+.estado-box.open{
+    color:#198754;
+}
+
+.estado-box.open .estado-dot{
+    background:#22c55e;
+    box-shadow:0 0 0 rgba(34,197,94,.6);
+    animation:pulseGreen 2s infinite;
+}
+
+/* ===== CIERRA PRONTO ===== */
+
+.estado-box.closing-soon{
+    color:#f59e0b;
+}
+
+.estado-box.closing-soon .estado-dot{
+    background:#f59e0b;
+    animation:pulseOrange 1.6s infinite;
+}
+
+/* ===== ABRE PRONTO ===== */
+
+.estado-box.opening-soon{
+    color:#f59e0b;
+}
+
+.estado-box.opening-soon .estado-dot{
+    background:#f59e0b;
+    animation:pulseOrange 1.6s infinite;
+}
+
+/* ===== CERRADO ===== */
+
+.estado-box.closed{
+    color:#dc2626;
+}
+
+.estado-box.closed .estado-dot{
+    background:#dc2626;
+}
+
+/* ===== ANIMACIONES ===== */
+
+@keyframes pulseGreen{
+
+0%{
+box-shadow:0 0 0 0 rgba(34,197,94,.6);
+}
+
+70%{
+box-shadow:0 0 0 10px rgba(34,197,94,0);
+}
+
+100%{
+box-shadow:0 0 0 0 rgba(34,197,94,0);
+}
+
+}
+
+@keyframes pulseOrange{
+
+0%{
+box-shadow:0 0 0 0 rgba(245,158,11,.6);
+}
+
+70%{
+box-shadow:0 0 0 10px rgba(245,158,11,0);
+}
+
+100%{
+box-shadow:0 0 0 0 rgba(245,158,11,0);
+}
+
+}
