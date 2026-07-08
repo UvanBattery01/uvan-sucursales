@@ -36,15 +36,22 @@ marca.addEventListener("change", () => {
   modelo.disabled = false;
   anio.disabled = true;
 
-  const modelos = [...new Set(
+ const modelos = [...new Set(
 
   vehiculos
-    .filter(v =>
-      v.Marca === marca.value &&
-      !/^G/i.test(v.Modelo) &&
-      !/^GS/i.test(v.Modelo) &&
-      !/^GP/i.test(v.Modelo)
-    )
+    .filter(v => {
+      if (v.Marca !== marca.value) return false;
+
+      const modelo = v.Modelo.trim();
+
+      if (/^(G|GP|GS)[-\s]/i.test(modelo)) return false;
+      if (modelo.includes("Gs-")) return false;
+      if (modelo.includes("Gp-")) return false;
+      if (modelo.includes("G-")) return false;
+      if (modelo.toLowerCase().includes("acumulador")) return false;
+
+      return true;
+    })
     .map(v => v.Modelo.trim())
 
 )].sort();
