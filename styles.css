@@ -437,3 +437,62 @@ font-size:52px;
 }
 
 }
+
+/* ===== BOTÓN TEMA ===== */
+
+.theme-toggle{
+    position:fixed;
+    top:20px;
+    right:20px;
+    width:48px;
+    height:48px;
+    border:none;
+    border-radius:50%;
+    background:#fff;
+    color:#111;
+    font-size:22px;
+    cursor:pointer;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+    z-index:99999;
+    transition:.25s;
+}
+
+.theme-toggle:hover{
+    transform:scale(1.08);
+}
+
+/* ===== MODO OSCURO ===== */
+
+body.dark{
+    background:#0f1115;
+    color:#f5f5f5;
+}
+
+body.dark .hero{
+    background:linear-gradient(180deg,#181b20,#111318);
+    border-bottom:1px solid #2b2b2b;
+}
+
+body.dark .promo,
+body.dark .card,
+body.dark .buscador,
+body.dark .popup{
+    background:#1b1f27;
+    color:#fff;
+    border:1px solid #303642;
+}
+
+body.dark select{
+    background:#262b35;
+    color:#fff;
+    border-color:#404856;
+}
+
+body.dark .estado{
+    background:#20242c;
+}
+
+body.dark .theme-toggle{
+    background:#2a2f39;
+    color:#fff;
+}
