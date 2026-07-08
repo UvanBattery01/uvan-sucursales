@@ -38,11 +38,16 @@ marca.addEventListener("change", () => {
 
   const modelos = [...new Set(
 
-    vehiculos
-      .filter(v => v.Marca === marca.value)
-      .map(v => v.Modelo)
+  vehiculos
+    .filter(v =>
+      v.Marca === marca.value &&
+      !/^G/i.test(v.Modelo) &&
+      !/^GS/i.test(v.Modelo) &&
+      !/^GP/i.test(v.Modelo)
+    )
+    .map(v => v.Modelo.trim())
 
-  )].sort();
+)].sort();
 
   modelos.forEach(m => {
 
