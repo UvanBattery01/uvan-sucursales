@@ -172,40 +172,18 @@ function actualizarEstados(){
 actualizarEstados();
 setInterval(actualizarEstados,60000);
 
+// Detectar automáticamente el modo del sistema
 
-const botonTema = document.getElementById("themeToggle");
+const media = window.matchMedia("(prefers-color-scheme: dark)");
 
-// Detectar preferencia del sistema
-const sistemaOscuro = window.matchMedia("(prefers-color-scheme: dark)");
-
-function aplicarTema(oscuro){
-    document.body.classList.toggle("dark", oscuro);
-    botonTema.textContent = oscuro ? "☀️" : "🌙";
-}
-
-// Si el usuario ya eligió un tema, usarlo
-const temaGuardado = localStorage.getItem("tema");
-
-if(temaGuardado){
-    aplicarTema(temaGuardado === "dark");
-}else{
-    aplicarTema(sistemaOscuro.matches);
-}
-
-// Escuchar cambios del sistema (solo si el usuario no eligió manualmente)
-sistemaOscuro.addEventListener("change", e=>{
-    if(!localStorage.getItem("tema")){
-        aplicarTema(e.matches);
+function actualizarTema(){
+    if(media.matches){
+        document.body.classList.add("dark");
+    }else{
+        document.body.classList.remove("dark");
     }
-});
+}
 
-// Cambio manual
-botonTema.onclick = ()=>{
+actualizarTema();
 
-    const oscuro = !document.body.classList.contains("dark");
-
-    aplicarTema(oscuro);
-
-    localStorage.setItem("tema", oscuro ? "dark" : "light");
-
-};
+media.addEventListener("change", actualizarTema);
