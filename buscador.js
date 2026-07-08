@@ -44,11 +44,10 @@ marca.addEventListener("change", () => {
 
       const modelo = v.Modelo.trim();
 
+      // Ignorar registros que realmente son códigos de baterías
       if (/^(G|GP|GS)[-\s]/i.test(modelo)) return false;
-      if (modelo.includes("Gs-")) return false;
-      if (modelo.includes("Gp-")) return false;
-      if (modelo.includes("G-")) return false;
-      if (modelo.toLowerCase().includes("acumulador")) return false;
+      if (/Gp-|Gs-|G-|Ref/i.test(modelo)) return false;
+      if (/Acumulador/i.test(modelo)) return false;
 
       return true;
     })
