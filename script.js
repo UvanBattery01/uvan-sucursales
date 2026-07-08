@@ -171,3 +171,41 @@ function actualizarEstados(){
 
 actualizarEstados();
 setInterval(actualizarEstados,60000);
+
+
+const botonTema = document.getElementById("themeToggle");
+
+// Detectar preferencia del sistema
+const sistemaOscuro = window.matchMedia("(prefers-color-scheme: dark)");
+
+function aplicarTema(oscuro){
+    document.body.classList.toggle("dark", oscuro);
+    botonTema.textContent = oscuro ? "☀️" : "🌙";
+}
+
+// Si el usuario ya eligió un tema, usarlo
+const temaGuardado = localStorage.getItem("tema");
+
+if(temaGuardado){
+    aplicarTema(temaGuardado === "dark");
+}else{
+    aplicarTema(sistemaOscuro.matches);
+}
+
+// Escuchar cambios del sistema (solo si el usuario no eligió manualmente)
+sistemaOscuro.addEventListener("change", e=>{
+    if(!localStorage.getItem("tema")){
+        aplicarTema(e.matches);
+    }
+});
+
+// Cambio manual
+botonTema.onclick = ()=>{
+
+    const oscuro = !document.body.classList.contains("dark");
+
+    aplicarTema(oscuro);
+
+    localStorage.setItem("tema", oscuro ? "dark" : "light");
+
+};
