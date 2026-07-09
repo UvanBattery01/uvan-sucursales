@@ -1,12 +1,10 @@
-
 /* ==========================================================
-   UVAN BATTERY - PREMIUM UI v2
-   Rediseño completo
+   UVAN BATTERY - PREMIUM UI v2.1 (Performance Edition)
    ========================================================== */
 
 :root{
   --bg:#f4f6f9;
-  --card:rgba(255,255,255,.82);
+  --card:rgba(255,255,255,.88);
   --text:#1d1d1f;
   --muted:#6b7280;
   --primary:#d60000;
@@ -15,7 +13,7 @@
   --warning:#f59e0b;
   --danger:#dc2626;
   --radius:22px;
-  --shadow:0 15px 40px rgba(0,0,0,.10);
+  --shadow:0 8px 22px rgba(0,0,0,.10);
 }
 
 *{
@@ -34,57 +32,45 @@ body{
   background:
   radial-gradient(circle at top,#ffd9d9 0,#fff 35%),
   linear-gradient(#fff,#f4f6f9);
+  overflow-x:hidden;
+  text-rendering:optimizeLegibility;
 }
 
-a{
-  text-decoration:none;
-  color:inherit;
-  -webkit-touch-callout:none;
-}
+a{text-decoration:none;color:inherit}
 
 .hero{
   position:relative;
   overflow:hidden;
   text-align:center;
-  padding:70px 20px 45px;
+  padding:90px 20px 45px;
 }
 
 .hero::before{
   content:"";
   position:absolute;
-  width:480px;
-  height:480px;
+  width:420px;
+  height:420px;
   background:#ff3a3a;
-  filter:blur(170px);
-  opacity:.10;
-  top:-220px;
+  filter:blur(120px);
+  opacity:.08;
+  top:-200px;
   left:50%;
   transform:translateX(-50%);
 }
 
-.logo{
-  width:140px;
-  position:relative;
-  z-index:2;
-}
+.logo{width:140px;position:relative;z-index:2}
 
-.hero h1{
-  font-size:2.2rem;
-  margin-top:10px;
-}
-
-.hero p{
-  color:var(--muted);
-}
+.hero h1{font-size:2.2rem;margin-top:10px}
+.hero p{color:var(--muted)}
 
 .promo,.buscador,.card,.popup{
-  backdrop-filter:blur(18px);
+  backdrop-filter:blur(8px);
   background:var(--card);
-  border:1px solid rgba(255,255,255,.6);
+  border:1px solid rgba(255,255,255,.65);
   box-shadow:var(--shadow);
 }
 
-.promo{
+.promo,.buscador{
   max-width:760px;
   margin:28px auto;
   padding:28px;
@@ -100,25 +86,15 @@ a{
   color:#fff;
   font-weight:700;
   background:linear-gradient(135deg,var(--primary2),var(--primary));
-  box-shadow:0 12px 30px rgba(214,0,0,.28);
-  transition:.25s;
+  box-shadow:0 8px 18px rgba(214,0,0,.22);
+  transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease;
+  cursor:pointer;
 }
 
 .btn:hover{transform:translateY(-2px)}
-.btn:active{transform:scale(.97)}
+.btn:active{transform:scale(.98)}
 
-.titulo{
-  text-align:center;
-  margin:40px 0 25px;
-  color:var(--primary);
-}
-
-.buscador{
-  max-width:760px;
-  margin:35px auto;
-  border-radius:28px;
-  padding:28px;
-}
+.titulo{text-align:center;margin:40px 0 25px;color:var(--primary)}
 
 select,button{
   width:100%;
@@ -132,57 +108,22 @@ select{
   border:2px solid #ececec;
   padding:0 18px;
   background:#fafafa;
-  transition:.25s;
 }
 
-select:focus{
-  outline:none;
-  border-color:var(--primary);
-  background:#fff;
-}
-
-button.btn{
-  cursor:pointer;
-}
-
-#resultado{
-  margin-top:24px;
-  padding-top:20px;
-  border-top:1px solid #eee;
-}
-
-#resultado h1{
-  font-size:62px;
-  color:var(--primary);
-}
+#resultado{margin-top:24px;padding-top:20px;border-top:1px solid #eee}
+#resultado h1{font-size:62px;color:var(--primary)}
 
 .card{
   display:block;
   margin:18px;
   padding:24px;
   border-radius:24px;
-  transition:.25s;
-  animation:fade .5s ease both;
+  transition:transform .2s ease,box-shadow .2s ease;
+  content-visibility:auto;
+  contain-intrinsic-size:280px;
 }
 
-.card:hover{
-  transform:translateY(-5px);
-}
-
-.card:active{
-  transform:scale(.98);
-}
-
-.card h3{
-  margin-bottom:10px;
-}
-
-.card span{
-  display:block;
-  margin-top:14px;
-  color:var(--primary);
-  font-weight:700;
-}
+.card:hover{transform:translateY(-4px)}
 
 .estado{
   margin:12px 0;
@@ -192,23 +133,11 @@ button.btn{
   border:1px solid #ececec;
 }
 
-.estado-box{
- display:flex;
- gap:12px;
- align-items:flex-start;
-}
-
-.estado-dot{
- width:12px;
- height:12px;
- border-radius:50%;
- margin-top:6px;
-}
-
+.estado-box{display:flex;gap:12px;align-items:flex-start}
+.estado-dot{width:12px;height:12px;border-radius:50%;margin-top:6px}
 .open .estado-dot{background:#22c55e}
 .closed .estado-dot{background:#dc2626}
-.closing-soon .estado-dot,
-.opening-soon .estado-dot{background:#f59e0b}
+.closing-soon .estado-dot,.opening-soon .estado-dot{background:#f59e0b}
 
 .float{
  position:fixed;
@@ -218,9 +147,8 @@ button.btn{
  color:#fff;
  padding:17px 22px;
  border-radius:999px;
- box-shadow:0 15px 30px rgba(0,0,0,.25);
+ box-shadow:0 10px 20px rgba(0,0,0,.22);
  z-index:999;
- animation:floating 3s ease-in-out infinite;
 }
 
 .popup{
@@ -231,33 +159,14 @@ button.btn{
  padding:16px;
  border-radius:20px;
  transform:translateY(150%);
- transition:.4s;
+ transition:transform .35s ease;
  z-index:999;
 }
 
-.popup.show{
- transform:translateY(0);
-}
-
-.popup-logo{font-size:28px}
-.popup strong{color:var(--primary)}
-
-.theme-toggle{
- position:fixed;
- top:18px;
- right:18px;
- width:50px;
- height:50px;
- border:none;
- border-radius:50%;
- background:#fff;
- box-shadow:var(--shadow);
- cursor:pointer;
-}
+.popup.show{transform:translateY(0)}
 
 body.dark{
- --bg:#0d1117;
- --card:rgba(28,32,40,.86);
+ --card:rgba(28,32,40,.90);
  --text:#f5f5f5;
  --muted:#a5acb8;
  background:
@@ -271,137 +180,15 @@ body.dark .card,
 body.dark .popup,
 body.dark .estado{
  background:var(--card);
- border-color:#303845;
  color:var(--text);
-}
-
-body.dark select{
- background:#262c36;
- color:#fff;
- border-color:#3b4452;
-}
-
-@keyframes floating{
-50%{transform:translateY(-6px)}
-}
-
-@keyframes fade{
-from{opacity:0;transform:translateY(18px)}
-to{opacity:1;transform:none}
+ border-color:#303845;
 }
 
 @media(max-width:700px){
-
-.hero{
- padding:50px 16px 35px;
-}
-
-.logo{
- width:120px;
-}
-
-.card{
- margin:12px;
- padding:20px;
-}
-
-.buscador{
- margin:20px 12px;
- padding:20px;
-}
-
-.popup{
- left:10px;
- right:10px;
- max-width:none;
-}
-
-#resultado h1{
- font-size:48px;
-}
-
-}
-
-/* ===========================
-   MENÚ LATERAL
-=========================== */
-
-.topbar{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:65px;
-    background:rgba(255,255,255,.9);
-    backdrop-filter:blur(15px);
-    display:flex;
-    align-items:center;
-    padding:0 18px;
-    box-shadow:0 4px 20px rgba(0,0,0,.08);
-    z-index:1000;
-}
-
-.topbar h2{
-    margin-left:18px;
-    font-size:22px;
-    color:var(--primary);
-}
-
-.menu-btn{
-    border:none;
-    background:none;
-    font-size:30px;
-    cursor:pointer;
-    color:var(--text);
-}
-
-#sidebar{
-    position:fixed;
-    top:0;
-    left:-280px;
-    width:280px;
-    height:100%;
-    background:#fff;
-    box-shadow:8px 0 30px rgba(0,0,0,.15);
-    padding:25px;
-    transition:.30s;
-    z-index:1100;
-}
-
-#sidebar.open{
-    left:0;
-}
-
-#sidebar h2{
-    color:var(--primary);
-    margin-bottom:25px;
-}
-
-#sidebar a{
-    display:block;
-    padding:15px 0;
-    font-size:18px;
-    border-bottom:1px solid #eee;
-}
-
-#overlay{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.35);
-    opacity:0;
-    visibility:hidden;
-    pointer-events:none;
-    transition:.30s;
-    z-index:1050;
-}
-
-#overlay.show{
-    opacity:1;
-    visibility:visible;
-    pointer-events:auto;
-}
-
-/* Evita que la barra tape el contenido */
-.hero{
-    padding-top:120px;
+.hero{padding:90px 16px 35px}
+.logo{width:120px}
+.card{margin:12px;padding:20px}
+.buscador{margin:20px 12px;padding:20px}
+.popup{left:10px;right:10px;max-width:none}
+#resultado h1{font-size:48px}
 }
