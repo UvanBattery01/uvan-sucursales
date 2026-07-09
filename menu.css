@@ -1,1 +1,235 @@
-/
+/* ==========================
+   MENU PREMIUM UVAN BATTERY
+========================== */
+
+.topbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:70px;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(15px);
+    display:flex;
+    align-items:center;
+    padding:0 20px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+    z-index:2000;
+}
+
+.menu-btn{
+    width:46px;
+    height:46px;
+    border:none;
+    background:none;
+    font-size:34px;
+    color:#222;
+    cursor:pointer;
+    border-radius:12px;
+    transition:.25s;
+}
+
+.menu-btn:hover{
+    background:#f4f4f4;
+}
+
+.topbar h2{
+    margin-left:18px;
+    font-size:22px;
+    color:#d60000;
+    font-weight:800;
+}
+
+/* ===== Overlay ===== */
+
+#overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    backdrop-filter:blur(2px);
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transition:.30s;
+    z-index:2090;
+}
+
+#overlay.show{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+}
+
+/* ===== Sidebar ===== */
+
+#sidebar{
+    position:fixed;
+    top:0;
+    left:-320px;
+    width:300px;
+    max-width:85%;
+    height:100vh;
+    background:#ffffff;
+    box-shadow:12px 0 40px rgba(0,0,0,.25);
+    transition:.35s;
+    z-index:2100;
+    overflow-y:auto;
+}
+
+#sidebar.open{
+    left:0;
+}
+
+/* ===== Header ===== */
+
+.menu-header{
+
+    background:linear-gradient(160deg,#111,#d60000);
+
+    color:white;
+
+    text-align:center;
+
+    padding:35px 20px;
+
+}
+
+.menu-logo{
+
+    width:95px;
+
+    height:95px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    background:white;
+
+    padding:8px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.30);
+
+}
+
+.menu-header h2{
+
+    margin-top:18px;
+
+    font-size:26px;
+
+    color:white;
+
+}
+
+.menu-header p{
+
+    margin-top:8px;
+
+    opacity:.9;
+
+}
+
+/* ===== Links ===== */
+
+.menu-links{
+
+    padding:20px;
+
+}
+
+.menu-links a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    padding:16px;
+
+    margin-bottom:12px;
+
+    border-radius:16px;
+
+    color:#222;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    transition:.25s;
+
+}
+
+.menu-links a:hover{
+
+    background:#f5f5f5;
+
+}
+
+.menu-links a .material-symbols-rounded{
+
+    font-size:28px;
+
+    color:#d60000;
+
+}
+
+/* ===== WhatsApp ===== */
+
+.menu-whatsapp{
+
+    display:block;
+
+    margin:20px;
+
+    text-align:center;
+
+    padding:16px;
+
+    border-radius:18px;
+
+    color:white !important;
+
+    font-weight:bold;
+
+    background:linear-gradient(135deg,#25D366,#119c46);
+
+    box-shadow:0 12px 25px rgba(37,211,102,.35);
+
+}
+
+/* ===== Footer ===== */
+
+.menu-footer{
+
+    text-align:center;
+
+    color:#888;
+
+    padding:20px;
+
+    font-size:14px;
+
+}
+
+/* ===== Hero ===== */
+
+.hero{
+
+    padding-top:120px;
+
+}
+
+/* ===== Responsive ===== */
+
+@media(min-width:900px){
+
+#sidebar{
+
+    width:320px;
+
+}
+
+}
