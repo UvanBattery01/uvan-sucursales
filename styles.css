@@ -496,3 +496,26 @@ body.dark .theme-toggle{
     background:#2a2f39;
     color:#fff;
 }
+
+/* Quitar el brillo azul de Android */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+a {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    user-select: none;
+    text-decoration: none;
+    color: inherit;
+}
+
+.card {
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+
+.card:focus,
+.card:active {
+    outline: none;
+}
