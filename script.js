@@ -291,16 +291,20 @@ const menuBtn = document.getElementById("menuBtn");
 const sidebar = document.getElementById("sidebar");
 const overlay = document.getElementById("overlay");
 
-if (menuBtn && sidebar && overlay) {
-
-    menuBtn.addEventListener("click", () => {
-        sidebar.classList.add("open");
-        overlay.classList.add("show");
-    });
-
-    overlay.addEventListener("click", () => {
-        sidebar.classList.remove("open");
-        overlay.classList.remove("show");
-    });
-
+function abrirMenu(){
+    sidebar.classList.add("open");
+    overlay.classList.add("show");
 }
+
+function cerrarMenu(){
+    sidebar.classList.remove("open");
+    overlay.classList.remove("show");
+}
+
+menuBtn.addEventListener("click", abrirMenu);
+overlay.addEventListener("click", cerrarMenu);
+
+// Cerrar al pulsar cualquier opción del menú
+document.querySelectorAll("#sidebar a").forEach(link=>{
+    link.addEventListener("click", cerrarMenu);
+});
