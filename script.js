@@ -187,3 +187,100 @@ function actualizarTema(){
 actualizarTema();
 
 media.addEventListener("change", actualizarTema);
+
+// ================= SUCURSAL MÁS CERCANA =================
+
+const ubicacionesUVAN = [
+{
+nombre:"Texcoco",
+lat:19.5029683,lng:-98.8834303,
+maps:"https://maps.app.goo.gl/9HAYZaAyCkRL5mMTA?g_st=ac"
+},
+{
+nombre:"Chicoloapan",
+lat:19.4115212,lng:-98.9212045,
+maps:"https://maps.app.goo.gl/ggwnW9UNHGjDFVax8?g_st=ac"
+},
+{
+nombre:"Central de Abastos",
+lat:19.4181540,lng:-98.9164916,
+maps:"https://maps.app.goo.gl/6KPNaBt4Tt4oi6n9A?g_st=ac"
+},
+{
+nombre:"Santa Rosa",
+lat:19.4087388,lng:-98.9003034,
+maps:"https://maps.app.goo.gl/GcoLjX25NzuEHpDRA?g_st=ac"
+},
+{
+nombre:"Los Reyes",
+lat:19.3550337,lng:-98.9782987,
+maps:"https://maps.app.goo.gl/L4ubcM3Jfp35oP3KA"
+},
+{
+nombre:"Chimalhuacán",
+lat:19.4289192,lng:-98.9622497,
+maps:"https://maps.app.goo.gl/x2eJgJ65VEjt4BFj8"
+},
+{
+nombre:"Nezahualcóyotl",
+lat:19.3980,lng:-98.9954,
+maps:"https://maps.app.goo.gl/RhqqZvsU55jCkFkJA"
+},
+{
+nombre:"Ixtapaluca",
+lat:19.3110377,lng:-98.9066676,
+maps:"https://maps.app.goo.gl/rK3GeP3tyu62Vuha8?g_st=ac"
+}
+];
+
+function distanciaKm(lat1,lon1,lat2,lon2){
+const R=6371;
+const dLat=(lat2-lat1)*Math.PI/180;
+const dLon=(lon2-lon1)*Math.PI/180;
+const a=Math.sin(dLat/2)**2+
+Math.cos(lat1*Math.PI/180)*
+Math.cos(lat2*Math.PI/180)*
+Math.sin(dLon/2)**2;
+return R*(2*Math.atan2(Math.sqrt(a),Math.sqrt(1-a)));
+}
+
+function buscarSucursalMasCercana(){
+const texto=document.getElementById("texto-cercana");
+const boton=document.getElementById("buscarSucursal");
+if(!texto||!boton)return;
+
+texto.innerHTML="📡 Buscando ubicación...";
+
+if(!navigator.geolocation){
+texto.innerHTML="❌ Tu navegador no soporta geolocalización.";
+return;
+}
+
+navigator.geolocation.getCurrentPosition(pos=>{
+const {latitude,longitude}=pos.coords;
+let mejor=null;
+
+ubicacionesUVAN.forEach(s=>{
+const d=distanciaKm(latitude,longitude,s.lat,s.lng);
+if(!mejor||d<mejor.d) mejor={...s,d};
+});
+
+texto.innerHTML=
+`<strong>🏪 ${mejor.nombre}</strong><br>
+📏 ${mejor.d.toFixed(1)} km de ti`;
+
+boton.textContent="🧭 Cómo llegar";
+boton.onclick=()=>window.open(mejor.maps,"_blank");
+
+},()=>{
+texto.innerHTML="⚠️ No fue posible obtener tu ubicación.";
+},{
+enableHighAccuracy:true,
+timeout:10000
+});
+}
+
+const btnBuscar=document.getElementById("buscarSucursal");
+if(btnBuscar){
+btnBuscar.addEventListener("click",buscarSucursalMasCercana);
+}
