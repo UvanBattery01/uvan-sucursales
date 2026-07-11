@@ -241,6 +241,64 @@ body.dark .estado{
     margin:25px 0;
 }
 
+.social-section{
+    padding:60px 20px;
+    text-align:center;
+    background:#111;
+    color:#fff;
+}
+
+.social-section h2{
+    font-size:2rem;
+    margin-bottom:10px;
+}
+
+.social-section p{
+    color:#ccc;
+    margin-bottom:35px;
+}
+
+.social-links{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.social-links a{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
+    color:#fff;
+    padding:15px 25px;
+    border-radius:12px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.facebook{
+    background:#1877F2;
+}
+
+.instagram{
+    background:linear-gradient(45deg,#833AB4,#FD1D1D,#FCAF45);
+}
+
+.tiktok{
+    background:#000;
+    border:1px solid #444;
+}
+
+.social-links a:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 25px rgba(0,0,0,.3);
+}
+
+.social-links i{
+    font-size:22px;
+}
+
 .footer-social a{
     width:50px;
     height:50px;
