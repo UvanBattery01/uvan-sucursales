@@ -76,13 +76,11 @@ header p{
     transform:translateY(-5px);
 }
 
-.image{
-    height:180px;
-    background:#ececec;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:70px;
+.image img{
+    width:100%;
+    height:220px;
+    object-fit:contain;
+    background:#fff;
 }
 
 .info{
@@ -96,7 +94,7 @@ header p{
 }
 
 .modelo{
-    font-size:24px;
+    font-size:22px;
     font-weight:bold;
 }
 
@@ -141,83 +139,9 @@ button:hover{
 <input type="text" placeholder="🔍 Buscar modelo o marca...">
 </div>
 
-<h2 class="section-title">Eagle Cars</h2>
+<h2 class="section-title">Catálogo</h2>
 
-<div class="grid">
-
-<div class="card">
-
-<div class="image">🔋</div>
-
-<div class="info">
-
-<div class="marca">EAGLE CARS</div>
-
-<div class="modelo">Modelo 47</div>
-
-<div class="especificaciones">
-12V<br>
-550 CCA<br>
-Garantía 12 meses
-</div>
-
-<button>Ver especificaciones</button>
-
-</div>
-
-</div>
-
-<div class="card">
-
-<div class="image">🔋</div>
-
-<div class="info">
-
-<div class="marca">EAGLE CARS</div>
-
-<div class="modelo">Modelo 51R</div>
-
-<div class="especificaciones">
-12V<br>
-500 CCA<br>
-Garantía 12 meses
-</div>
-
-<button>Ver especificaciones</button>
-
-</div>
-
-</div>
-
-</div>
-
-<h2 class="section-title">Gonher</h2>
-
-<div class="grid">
-
-<div class="card">
-
-<div class="image">🔋</div>
-
-<div class="info">
-
-<div class="marca">GONHER</div>
-
-<div class="modelo">Modelo 47</div>
-
-<div class="especificaciones">
-12V<br>
-550 CCA<br>
-Garantía 48 meses
-</div>
-
-<button>Ver especificaciones</button>
-
-</div>
-
-</div>
-
-</div>
+<div class="grid" id="catalogo"></div>
 
 </div>
 
