@@ -106,7 +106,7 @@ function verProducto(id){
             `Hola, me interesa la batería ${producto.marca} ${producto.modelo}. ¿Podrían darme información?`
         );
 
-        window.open(`https://wa.me/525512345678?text=${mensaje}`, "_blank");
+        window.open(`https://wa.me/525615855066?text=${mensaje}`, "_blank");
     };
 
     document.getElementById("modalProducto").style.display = "flex";
