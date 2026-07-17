@@ -190,7 +190,17 @@ button:hover{
 
         <span class="cerrar" onclick="cerrarProducto()">&times;</span>
 
-        <img id="modalImagen" src="" alt="Batería">
+        <div class="galeria">
+
+    <button class="flecha" onclick="imagenAnterior()">❮</button>
+
+    <img id="modalImagen" src="" alt="Batería">
+
+    <button class="flecha" onclick="imagenSiguiente()">❯</button>
+
+</div>
+
+<div id="indicadores" class="indicadores"></div>
 
         <h2 id="modalMarca"></h2>
         <h3 id="modalModelo"></h3>
