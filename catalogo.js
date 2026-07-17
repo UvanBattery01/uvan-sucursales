@@ -102,6 +102,7 @@ function verProducto(id){
     `;
 
     document.getElementById("btnWhatsapp").onclick = () => {
+
         const mensaje = encodeURIComponent(
             `Hola, me interesa la batería ${producto.marca} ${producto.modelo}. ¿Podrían darme información?`
         );
@@ -113,6 +114,8 @@ function verProducto(id){
 }
 
 function cerrarProducto(){
+    document.getElementById("modalProducto").style.display = "none";
+}
 
 window.onclick = function(event){
 
@@ -122,6 +125,4 @@ window.onclick = function(event){
         cerrarProducto();
     }
 
-}
-    document.getElementById("modalProducto").style.display = "none";
 }
