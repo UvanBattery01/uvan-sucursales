@@ -28,10 +28,10 @@ const productos = [
     peso:"17.35 kg",
 
     imagenes:[
-        "1000056332.png",
-        "1000076225.png",
-        "lth47-3.png"
-    ],
+    "lth47-1.png",
+    "lth47-2.png",
+    "lth47-3.png"
+],
 
     descripcion:"Batería AGM diseñada para vehículos con sistema Start-Stop y alta demanda eléctrica."
 }
