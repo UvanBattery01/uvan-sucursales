@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Automóvil y Camioneta | UVAN BATTERY</title>
+
+<link rel="stylesheet" href="styles.css">
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f5f5f5;
+}
+
+header{
+    background:linear-gradient(135deg,#000,#7a0000,#d60000);
+    color:#fff;
+    text-align:center;
+    padding:60px 20px 40px;
+}
+
+header h1{
+    margin:0;
+    font-size:34px;
+}
+
+header p{
+    margin-top:10px;
+    opacity:.9;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:25px;
+}
+
+.search{
+    margin-bottom:25px;
+}
+
+.search input{
+    width:100%;
+    padding:16px;
+    border-radius:12px;
+    border:none;
+    font-size:16px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.section-title{
+    font-size:24px;
+    margin:30px 0 20px;
+    color:#222;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    transition:.25s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.image{
+    height:180px;
+    background:#ececec;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:70px;
+}
+
+.info{
+    padding:20px;
+}
+
+.marca{
+    color:#c40000;
+    font-weight:bold;
+    margin-bottom:5px;
+}
+
+.modelo{
+    font-size:24px;
+    font-weight:bold;
+}
+
+.especificaciones{
+    margin:15px 0;
+    color:#666;
+    line-height:1.8;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    background:#d60000;
+    color:white;
+    border:none;
+    border-radius:10px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#aa0000;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>Automóvil y Camioneta</h1>
+
+<p>Encuentra la batería ideal para tu vehículo.</p>
+
+</header>
+
+<div class="container">
+
+<div class="search">
+<input type="text" placeholder="🔍 Buscar modelo o marca...">
+</div>
+
+<h2 class="section-title">Eagle Cars</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<div class="image">🔋</div>
+
+<div class="info">
+
+<div class="marca">EAGLE CARS</div>
+
+<div class="modelo">Modelo 47</div>
+
+<div class="especificaciones">
+12V<br>
+550 CCA<br>
+Garantía 12 meses
+</div>
+
+<button>Ver especificaciones</button>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="image">🔋</div>
+
+<div class="info">
+
+<div class="marca">EAGLE CARS</div>
+
+<div class="modelo">Modelo 51R</div>
+
+<div class="especificaciones">
+12V<br>
+500 CCA<br>
+Garantía 12 meses
+</div>
+
+<button>Ver especificaciones</button>
+
+</div>
+
+</div>
+
+</div>
+
+<h2 class="section-title">Gonher</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<div class="image">🔋</div>
+
+<div class="info">
+
+<div class="marca">GONHER</div>
+
+<div class="modelo">Modelo 47</div>
+
+<div class="especificaciones">
+12V<br>
+550 CCA<br>
+Garantía 48 meses
+</div>
+
+<button>Ver especificaciones</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
