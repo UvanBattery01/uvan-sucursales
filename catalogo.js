@@ -85,24 +85,33 @@ function verProducto(id){
 
     if(!producto) return;
 
-    alert(
-`${producto.marca}
+    document.getElementById("modalImagen").src = producto.imagenes[0];
+    document.getElementById("modalMarca").textContent = producto.marca;
+    document.getElementById("modalModelo").textContent = producto.modelo;
 
-${producto.linea}
+    document.getElementById("modalInfo").innerHTML = `
+        <strong>BCI:</strong> ${producto.bci}<br>
+        <strong>Voltaje:</strong> ${producto.voltaje}<br>
+        <strong>CCA:</strong> ${producto.cca}<br>
+        <strong>CA:</strong> ${producto.ca}<br>
+        <strong>Capacidad:</strong> ${producto.ah}<br>
+        <strong>RC:</strong> ${producto.rc}<br>
+        <strong>Garantía:</strong> ${producto.garantia}<br>
+        <strong>Reemplazo:</strong> ${producto.reemplazo}<br>
+        <strong>Polaridad:</strong> ${producto.polaridad}
+    `;
 
-Modelo: ${producto.modelo}
+    document.getElementById("btnWhatsapp").onclick = () => {
+        const mensaje = encodeURIComponent(
+            `Hola, me interesa la batería ${producto.marca} ${producto.modelo}. ¿Podrían darme información?`
+        );
 
-BCI: ${producto.bci}
-Voltaje: ${producto.voltaje}
-CCA: ${producto.cca}
-CA: ${producto.ca}
-Capacidad: ${producto.ah}
-RC: ${producto.rc}
+        window.open(`https://wa.me/525512345678?text=${mensaje}`, "_blank");
+    };
 
-Garantía: ${producto.garantia}
-Reemplazo sin costo: ${producto.reemplazo}
+    document.getElementById("modalProducto").style.display = "flex";
+}
 
-Polaridad: ${producto.polaridad}`
-    );
-
+function cerrarProducto(){
+    document.getElementById("modalProducto").style.display = "none";
 }
