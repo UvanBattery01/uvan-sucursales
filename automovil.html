@@ -119,6 +119,46 @@ button:hover{
     background:#aa0000;
 }
 
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.7);
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.modal-content{
+    background:#fff;
+    width:90%;
+    max-width:450px;
+    border-radius:18px;
+    padding:25px;
+    text-align:center;
+    position:relative;
+}
+
+.modal-content img{
+    width:100%;
+    max-height:250px;
+    object-fit:contain;
+}
+
+.cerrar{
+    position:absolute;
+    top:12px;
+    right:18px;
+    font-size:32px;
+    cursor:pointer;
+}
+
+#modalInfo{
+    text-align:left;
+    margin:20px 0;
+    line-height:1.8;
+}
+
 </style>
 
 </head>
