@@ -113,5 +113,15 @@ function verProducto(id){
 }
 
 function cerrarProducto(){
+
+window.onclick = function(event){
+
+    const modal = document.getElementById("modalProducto");
+
+    if(event.target === modal){
+        cerrarProducto();
+    }
+
+}
     document.getElementById("modalProducto").style.display = "none";
 }
