@@ -64,10 +64,9 @@ a{text-decoration:none;color:inherit}
 .hero p{color:var(--muted)}
 
 .promo,.buscador,.card,.popup{
-  backdrop-filter:blur(8px);
-  background:var(--card);
-  border:1px solid rgba(255,255,255,.65);
-  box-shadow:var(--shadow);
+  background:#ffffff;
+  border:1px solid rgba(0,0,0,.06);
+  box-shadow:0 4px 12px rgba(0,0,0,.08);
 }
 
 .promo,.buscador{
