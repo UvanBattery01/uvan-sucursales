@@ -233,6 +233,12 @@ nombre:"Ixtapaluca",
 lat:19.3110377,lng:-98.9066676,
 maps:"https://maps.app.goo.gl/rK3GeP3tyu62Vuha8?g_st=ac"
 }
+{
+nombre:"Ermita",
+lat:AQUI_LATITUD,
+lng:AQUI_LONGITUD,
+maps:"https://maps.app.goo.gl/8CguRJpHXBqvJM3b6?g_st=ac"
+},
 ];
 
 function distanciaKm(lat1,lon1,lat2,lon2){
