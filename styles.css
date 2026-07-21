@@ -13,7 +13,7 @@
   --warning:#f59e0b;
   --danger:#dc2626;
   --radius:22px;
-  --shadow:0 8px 22px rgba(0,0,0,.10);
+  --shadow:0 4px 12px rgba(0,0,0,.08);
 }
 
 *{
@@ -51,7 +51,7 @@ a{text-decoration:none;color:inherit}
   width:420px;
   height:420px;
   background:#ff3a3a;
-  filter:blur(120px);
+  filter:blur(50px);
   opacity:.08;
   top:-200px;
   left:50%;
