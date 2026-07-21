@@ -32,7 +32,7 @@ const mensajes = [
 "💯 Otro cliente eligió UVAN BATTERY",
 "🔥 Cliente aprovechó la promoción del mes",
 "🎉 ¡Otra venta completada!",
-""🟢 Venta realizada en Ermita"
+"🟢 Venta realizada en Ermita"
 ];
 
 const popup=document.getElementById("popup");
@@ -229,17 +229,20 @@ lat:19.3980,lng:-98.9954,
 maps:"https://maps.app.goo.gl/RhqqZvsU55jCkFkJA"
 },
 {
-nombre:"Ixtapaluca",
-lat:19.3110377,lng:-98.9066676,
-maps:"https://maps.app.goo.gl/rK3GeP3tyu62Vuha8?g_st=ac"
-}
 {
+nombre:"Ixtapaluca",
+lat:19.3110377,
+lng:-98.9066676,
+maps:"https://maps.app.goo.gl/rK3GeP3tyu62Vuha8?g_st=ac"
+},
+
 {
 nombre:"Ermita",
 lat:19.3506632,
 lng:-99.0176759,
 maps:"https://maps.app.goo.gl/cK1w6S12ywzBXtAFA?g_st=ac"
-},
+}
+
 ];
 
 function distanciaKm(lat1,lon1,lat2,lon2){
