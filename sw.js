@@ -1,4 +1,4 @@
-const CACHE_NAME = "uvanbattery-v2";
+const CACHE_NAME = "uvanbattery-v3";
 
 const urlsToCache = [
   "/styles.css?v=5",
