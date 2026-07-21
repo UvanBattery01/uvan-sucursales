@@ -32,7 +32,7 @@ const mensajes = [
 "💯 Otro cliente eligió UVAN BATTERY",
 "🔥 Cliente aprovechó la promoción del mes",
 "🎉 ¡Otra venta completada!",
-"🚧 Próximamente: Nueva sucursal UVAN BATTERY en Ermita"
+""🟢 Venta realizada en Ermita"
 ];
 
 const popup=document.getElementById("popup");
