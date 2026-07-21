@@ -62,11 +62,13 @@ domingo:{abre:{h:9,m:0},cierra:{h:15,m:0}}
 const sucursales=[
 "estado-texcoco",
 "estado-chicoloapan",
+"estado-central",
 "estado-santarosa",
 "estado-neza",
 "estado-losreyes",
 "estado-ixtapaluca",
-"estado-chimalhuacan"
+"estado-chimalhuacan",
+"estado-ermita"
 ];
 
 function minutosHasta(a,b){
