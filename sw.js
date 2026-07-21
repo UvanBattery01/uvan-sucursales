@@ -1,25 +1,52 @@
-const CACHE_NAME = "uvanbattery-v1";
+const CACHE_NAME = "uvanbattery-v2";
 
 const urlsToCache = [
-  "/",
-  "/index.html",
-  "/styles.css",
-  "/menu.css",
-  "/manifest.webmanifest"
+  "/styles.css?v=5",
+  "/menu.css?v=1",
+  "/script.js?v=6",
+  "/menu.js?v=1",
+  "/buscador.js?v=1",
+  "/manifest.webmanifest",
+  "/favicon.ico",
+  "/favicon-32x32.png",
+  "/favicon-16x16.png",
+  "/apple-touch-icon.png"
 ];
 
+// Instalar
 self.addEventListener("install", event => {
+  self.skipWaiting();
+
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => {
-      return cache.addAll(urlsToCache);
-    })
+    caches.open(CACHE_NAME).then(cache => cache.addAll(urlsToCache))
   );
 });
 
-self.addEventListener("fetch", event => {
-  event.respondWith(
-    caches.match(event.request).then(response => {
-      return response || fetch(event.request);
-    })
+// Activar
+self.addEventListener("activate", event => {
+  event.waitUntil(
+    caches.keys().then(keys =>
+      Promise.all(
+        keys.map(key => {
+          if (key !== CACHE_NAME) {
+            return caches.delete(key);
+          }
+        })
+      )
+    )
   );
+
+  self.clients.claim();
 });
+
+// Fetch
+self.addEventListener("fetch", event => {
+  // Nunca cachear el HTML
+  if (event.request.mode === "navigate") {
+    event.respondWith(fetch(event.request));
+    return;
+  }
+
+  // Cache primero para archivos estáticos
+  event.respondWith(
+    caches.match(event.request).
