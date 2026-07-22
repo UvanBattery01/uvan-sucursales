@@ -30,8 +30,12 @@ body{
   color:var(--text);
   line-height:1.6;
   background:
-  radial-gradient(circle at top,#ffd9d9 0,#fff 35%),
-  linear-gradient(#fff,#f4f6f9);
+linear-gradient(
+180deg,
+#ffffff 0%,
+#fafafa 35%,
+#f3f5f8 100%
+);
   overflow-x:hidden;
   text-rendering:optimizeLegibility;
 }
