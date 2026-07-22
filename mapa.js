@@ -125,6 +125,7 @@ sucursales.forEach(s=>{
 });
 
 // Mostrar todas las sucursales automáticamente
-map.fitBounds(grupo,{
-    padding:[40,40]
+const bounds = L.latLngBounds(grupo);
+map.fitBounds(bounds, {
+    padding: [30,30]
 });
