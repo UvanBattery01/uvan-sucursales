@@ -3,7 +3,7 @@
 // ===============================
 
 // Crear mapa
-const map = L.map("map");
+const map = L.map("map").setView([19.4115, -98.92], 11);
 
 // Mapa OpenStreetMap
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
