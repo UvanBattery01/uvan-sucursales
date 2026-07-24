@@ -130,3 +130,4 @@ const bounds = L.latLngBounds(grupo);
 map.fitBounds(bounds, {
     padding: [30,30]
 });
+});
