@@ -2,7 +2,8 @@
 // UVAN BATTERY - MAPA PREMIUM
 // ===============================
 
-// Crear mapa
+document.addEventListener("DOMContentLoaded", () => {
+
 const map = L.map("map").setView([19.4115, -98.92], 11);
 
 // Mapa OpenStreetMap
