@@ -46,7 +46,6 @@ const iconoRojo = L.icon({
 
 const sucursales = [
 {
-{
 nombre:"Texcoco",
 lat:19.5029687,
 lng:-98.8833891,
