@@ -6,7 +6,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const map = L.map("map").setView([19.4115, -98.92], 11);
 
-// Mapa OpenStreetMap
+// ===============================
+// MAPA OPENSTREETMAP
+// ===============================
+
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
     attribution: "&copy; OpenStreetMap"
@@ -17,24 +20,24 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
 // ===============================
 
 const iconoVerde = L.icon({
-    iconUrl: "img/pin-verde.png",
-    iconSize: [42,56],
-    iconAnchor: [21,56],
-    popupAnchor: [0,-45]
+    iconUrl: "pin-verde.png",
+    iconSize: [42, 56],
+    iconAnchor: [21, 56],
+    popupAnchor: [0, -45]
 });
 
 const iconoNaranja = L.icon({
-    iconUrl: "img/pin-naranja.png",
-    iconSize: [42,56],
-    iconAnchor: [21,56],
-    popupAnchor: [0,-45]
+    iconUrl: "pin-naranja.png",
+    iconSize: [42, 56],
+    iconAnchor: [21, 56],
+    popupAnchor: [0, -45]
 });
 
 const iconoRojo = L.icon({
-    iconUrl: "img/pin-rojo.png",
-    iconSize: [42,56],
-    iconAnchor: [21,56],
-    popupAnchor: [0,-45]
+    iconUrl: "pin-rojo.png",
+    iconSize: [42, 56],
+    iconAnchor: [21, 56],
+    popupAnchor: [0, -45]
 });
 
 // ===============================
@@ -104,7 +107,7 @@ url:"https://maps.app.goo.gl/ZbhjniLhFK2E5akT6"
 
 sucursales.forEach(s => {
 
-    // Por ahora todos aparecerán en verde
+    // Prueba: todos en verde
     const iconoActual = iconoVerde;
 
     const marker = L.marker([s.lat, s.lng], {
