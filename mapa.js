@@ -12,15 +12,35 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: "&copy; OpenStreetMap"
 }).addTo(map);
 
-// Icono personalizado
-const icono = L.icon({
-    iconUrl: "https://cdn-icons-png.flaticon.com/512/3209/3209265.png",
-    iconSize: [42,42],
-    iconAnchor: [21,42],
-    popupAnchor: [0,-35]
+// ===============================
+// ICONOS PERSONALIZADOS
+// ===============================
+
+const iconoVerde = L.icon({
+    iconUrl: "img/pin-verde.png",
+    iconSize: [42,56],
+    iconAnchor: [21,56],
+    popupAnchor: [0,-45]
 });
 
-// Sucursales UVAN
+const iconoNaranja = L.icon({
+    iconUrl: "img/pin-naranja.png",
+    iconSize: [42,56],
+    iconAnchor: [21,56],
+    popupAnchor: [0,-45]
+});
+
+const iconoRojo = L.icon({
+    iconUrl: "img/pin-rojo.png",
+    iconSize: [42,56],
+    iconAnchor: [21,56],
+    popupAnchor: [0,-45]
+});
+
+// ===============================
+// SUCURSALES
+// ===============================
+
 const sucursales = [
 {
 nombre:"Texcoco",
@@ -78,11 +98,17 @@ url:"https://maps.app.goo.gl/ZbhjniLhFK2E5akT6"
 }
 ];
 
-// Crear marcadores
+// ===============================
+// MARCADORES
+// ===============================
+
 sucursales.forEach(s => {
 
+    // Por ahora todos aparecerán en verde
+    const iconoActual = iconoVerde;
+
     const marker = L.marker([s.lat, s.lng], {
-        icon: icono
+        icon: iconoActual
     }).addTo(map);
 
     marker.bindPopup(`
