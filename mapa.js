@@ -102,16 +102,51 @@ url:"https://maps.app.goo.gl/ZbhjniLhFK2E5akT6"
 ];
 
 // ===============================
+// FUNCIÓN PARA OBTENER EL COLOR
+// ===============================
+
+function obtenerIcono() {
+
+    const ahora = new Date();
+    const dia = ahora.getDay();
+    const minutos = ahora.getHours() * 60 + ahora.getMinutes();
+
+    let abre;
+    let cierra;
+
+    if (dia >= 1 && dia <= 5) {
+        // Lunes a viernes
+        abre = 8 * 60;
+        cierra = 19 * 60;
+    } else if (dia === 6) {
+        // Sábado
+        abre = 9 * 60;
+        cierra = 18 * 60;
+    } else {
+        // Domingo
+        abre = 9 * 60;
+        cierra = 15 * 60;
+    }
+
+    if (minutos < abre || minutos >= cierra) {
+        return iconoRojo;
+    }
+
+    if ((cierra - minutos) <= 60) {
+        return iconoNaranja;
+    }
+
+    return iconoVerde;
+}
+
+// ===============================
 // MARCADORES
 // ===============================
 
 sucursales.forEach(s => {
 
-    // Prueba: todos en verde
-    const iconoActual = iconoVerde;
-
     const marker = L.marker([s.lat, s.lng], {
-        icon: iconoActual
+        icon: obtenerIcono()
     }).addTo(map);
 
     marker.bindPopup(`
