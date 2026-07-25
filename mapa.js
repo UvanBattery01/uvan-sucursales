@@ -46,10 +46,26 @@ const iconoRojo = L.icon({
 
 const sucursales = [
 {
+{
 nombre:"Texcoco",
 lat:19.5029687,
 lng:-98.8833891,
-url:"https://maps.app.goo.gl/4W1RzfpkU6i9hMK9A?g_st=ac"
+url:"https://maps.app.goo.gl/4W1RzfpkU6i9hMK9A?g_st=ac",
+
+horario:{
+    lunesViernes:{
+        abre:"08:00",
+        cierra:"19:00"
+    },
+    sabado:{
+        abre:"09:00",
+        cierra:"18:00"
+    },
+    domingo:{
+        abre:"09:00",
+        cierra:"15:00"
+    }
+}
 },
 {
 nombre:"Chicoloapan",
