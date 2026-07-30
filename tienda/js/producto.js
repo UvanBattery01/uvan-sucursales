@@ -44,3 +44,14 @@ Producto no encontrado
 `;
 
 }
+const botonCarrito = document.querySelector(".carrito");
+
+if(botonCarrito){
+
+    botonCarrito.addEventListener("click", ()=>{
+
+        agregarAlCarrito(producto.id);
+
+    });
+
+}
