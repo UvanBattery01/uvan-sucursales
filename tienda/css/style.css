@@ -659,3 +659,59 @@ height:150px;
 }
 
 }
+.datos-cliente{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    margin-top:25px;
+}
+
+.datos-cliente input[type="text"],
+.datos-cliente input[type="tel"]{
+    width:100%;
+    padding:14px 16px;
+    border:2px solid #e6e6e6;
+    border-radius:12px;
+    font-size:16px;
+    background:#fafafa;
+    transition:.25s;
+    box-sizing:border-box;
+}
+
+.datos-cliente input:focus{
+    outline:none;
+    border-color:#6b2dbd;
+    background:#fff;
+    box-shadow:0 0 0 4px rgba(107,45,189,.12);
+}
+
+.instalacion{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:16px;
+    font-weight:600;
+}
+
+.instalacion input{
+    width:20px;
+    height:20px;
+}
+
+#finalizarCompra{
+    width:100%;
+    margin-top:20px;
+    padding:18px;
+    border:none;
+    border-radius:16px;
+    background:#f8b400;
+    color:#111;
+    font-size:22px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.25s;
+}
+
+#finalizarCompra:hover{
+    transform:translateY(-2px);
+}
