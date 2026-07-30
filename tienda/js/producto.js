@@ -35,6 +35,20 @@ if (producto) {
     // Garantía
     document.getElementById("garantiaProducto").textContent =
         "🛡 Garantía " + producto.garantia;
+// Especificaciones
+const lista = document.getElementById("listaEspecificaciones");
+
+if (lista && producto.especificaciones) {
+
+    lista.innerHTML = "";
+
+    producto.especificaciones.forEach(especificacion => {
+
+        lista.innerHTML += `<li>${especificacion}</li>`;
+
+    });
+
+}
 
 } else {
 
