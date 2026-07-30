@@ -125,7 +125,7 @@ if (botonFinalizar) {
         mensaje += `💰 Total: $${totalCompra.toLocaleString("es-MX")}`;
 
         window.open(
-            `https://wa.me/525615855065?text=${mensaje}`,
+            `https://wa.me/525615855066?text=${mensaje}`,
             "_blank"
         );
 
