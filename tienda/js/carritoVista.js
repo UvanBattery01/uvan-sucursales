@@ -1,127 +1,17 @@
-let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
 const lista = document.getElementById("listaCarrito");
 const total = document.getElementById("total");
 
-function guardarCarrito() {
-    localStorage.setItem("carrito", JSON.stringify(carrito));
-}
+const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-function mostrarCarrito() {
+console.log("Carrito leído:", carrito);
 
-    lista.innerHTML = "";
+if (carrito.length === 0) {
 
-    let totalCompra = 0;
+    lista.innerHTML = "<p>🛒 Tu carrito está vacío</p>";
 
-    if (carrito.length === 0) {
+    total.textContent = "$0";
 
-        lista.innerHTML = `
-            <p style="text-align:center;">
-                🛒 Tu carrito está vacío
-            </p>
-        `;
-
-        total.textContent = "$0";
-        return;
-    }
-
-    carrito.forEach((producto, index) => {
-
-        const subtotal = producto.precio * producto.cantidad;
-        totalCompra += subtotal;
-
-        lista.innerHTML += `
-            <div class="producto-carrito">
-
-                <img src="${producto.imagen}" alt="${producto.modelo}">
-
-                <div class="info">
-
-                    <h3>${producto.marca} ${producto.modelo}</h3>
-
-                    <p class="precio">
-                        $${producto.precio.toLocaleString("es-MX")}
-                    </p>
-
-                    <div class="cantidad">
-
-                        <button onclick="cambiarCantidad(${index}, -1)">−</button>
-
-                        <span>${producto.cantidad}</span>
-
-                        <button onclick="cambiarCantidad(${index}, 1)">+</button>
-
-                    </div>
-
-                    <p>
-                        <strong>Subtotal:</strong>
-                        $${subtotal.toLocaleString("es-MX")}
-                    </p>
-
-                    <button onclick="eliminarProducto(${index})">
-                        🗑 Eliminar
-                    </button>
-
-                </div>
-
-            </div>
-        `;
-
-    });
-
-    total.textContent = "$" + totalCompra.toLocaleString("es-MX");
-
-}
-
-function cambiarCantidad(index, cambio) {
-
-    carrito[index].cantidad += cambio;
-
-    if (carrito[index].cantidad <= 0) {
-        carrito.splice(index, 1);
-    }
-
-    guardarCarrito();
-    mostrarCarrito();
-
-}
-
-function eliminarProducto(index) {
-
-    carrito.splice(index, 1);
-
-    guardarCarrito();
-    mostrarCarrito();
-
-}
-
-mostrarCarrito();
-const botonFinalizar = document.getElementById("finalizarCompra");
-
-if (botonFinalizar) {
-
-    botonFinalizar.addEventListener("click", () => {
-
-    if (carrito.length === 0) {
-        alert("Tu carrito está vacío.");
-        return;
-    }
-
-    const nombre = document.getElementById("nombreCliente").value;
-    const telefono = document.getElementById("telefonoCliente").value;
-    const municipio = document.getElementById("municipioCliente").value;
-    const instalacion = document.getElementById("instalacion").checked
-        ? "Sí"
-        : "No";
-
-    let mensaje = "🔋 *Nuevo pedido - UVAN BATTERY*%0A%0A";
-
-    mensaje += `👤 Nombre: ${nombre}%0A`;
-    mensaje += `📞 Teléfono: ${telefono}%0A`;
-    mensaje += `📍 Municipio: ${municipio}%0A`;
-    mensaje += `🛠 Instalación: ${instalacion}%0A%0A`;
-
-    mensaje += "🛒 *Productos:*%0A%0A";
+} else {
 
     let totalCompra = 0;
 
@@ -130,17 +20,16 @@ if (botonFinalizar) {
         const subtotal = producto.precio * producto.cantidad;
         totalCompra += subtotal;
 
-        mensaje += `• ${producto.marca} ${producto.modelo}%0A`;
-        mensaje += `Cantidad: ${producto.cantidad}%0A`;
-        mensaje += `Subtotal: $${subtotal.toLocaleString("es-MX")}%0A%0A`;
+        lista.innerHTML += `
+            <div class="producto-carrito">
+                <h3>${producto.marca} ${producto.modelo}</h3>
+                <p>Cantidad: ${producto.cantidad}</p>
+                <p>$${subtotal.toLocaleString("es-MX")}</p>
+            </div>
+        `;
 
     });
 
-    mensaje += `💰 *TOTAL:* $${totalCompra.toLocaleString("es-MX")}`;
+    total.textContent = "$" + totalCompra.toLocaleString("es-MX");
 
-    window.open(
-        `https://wa.me/525615855066?text=${mensaje}`,
-        "_blank"
-    );
-
-});
+}
