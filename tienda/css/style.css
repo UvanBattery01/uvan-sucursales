@@ -1,394 +1,200 @@
-/* ==========================
-   UVAN BATTERY STORE
-========================== */
+/* UVAN BATTERY STORE v2 - Base Premium */
 
 :root{
-    --primary:#6f2dbd;
-    --primary-dark:#4b1d82;
-    --secondary:#f5b301;
-    --dark:#111111;
-    --light:#ffffff;
-    --gray:#f4f4f4;
-    --radius:16px;
-    --shadow:0 10px 25px rgba(0,0,0,.18);
+ --primary:#6f2dbd;
+ --primary-dark:#4b1d82;
+ --secondary:#f5b301;
+ --dark:#101114;
+ --light:#fff;
+ --bg:#f4f5f8;
+ --radius:20px;
+ --shadow:0 16px 40px rgba(0,0,0,.12);
 }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
-    font-family:Arial, Helvetica, sans-serif;
-    background:#fafafa;
-    color:#222;
-    line-height:1.6;
+ font-family:Arial,Helvetica,sans-serif;
+ background:var(--bg);
+ color:#222;
+ line-height:1.6;
 }
-
-img{
-    max-width:100%;
-    display:block;
-}
-
-a{
-    text-decoration:none;
-    color:inherit;
-}
-
-button{
-    cursor:pointer;
-    border:none;
-    transition:.3s;
-}
-
-.container{
-    width:min(1200px,92%);
-    margin:auto;
-}
-.destacados{
-    padding:60px 5%;
-}
-
-.destacados h2{
-    text-align:center;
-    margin-bottom:40px;
-    font-size:2rem;
-}
-
-.productos{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:25px;
-}
-
-.producto{
-    background:#fff;
-    border-radius:16px;
-    overflow:hidden;
-    box-shadow:0 10px 20px rgba(0,0,0,.1);
-    transition:.3s;
-}
-
-.producto:hover{
-    transform:translateY(-6px);
-}
-
-.producto img{
-    width:100%;
-    height:220px;
-    object-fit:contain;
-    padding:20px;
-}
-
-.info{
-    padding:20px;
-}
-
-.marca{
-    color:#6f2dbd;
-    font-weight:bold;
-    font-size:.9rem;
-}
-
-.precio{
-    font-size:1.5rem;
-    color:#6f2dbd;
-    font-weight:bold;
-    margin:12px 0;
-}
-
-.garantia,
-.stock{
-    color:#555;
-    margin-bottom:8px;
-}
-
-.producto button{
-    width:100%;
-    background:#6f2dbd;
-    color:#fff;
-    padding:14px;
-    border:none;
-    border-radius:10px;
-    font-weight:bold;
-}
-
-.producto button:hover{
-    background:#4b1d82;
-}
-/* ==========================
-   HEADER
-========================== */
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;border:none;transition:.25s}
 
 .header{
-    position:sticky;
-    top:0;
-    z-index:1000;
-    background:#111;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 5%;
-    box-shadow:0 5px 15px rgba(0,0,0,.15);
+ position:sticky;top:0;z-index:1000;
+ display:flex;justify-content:space-between;align-items:center;
+ padding:14px 6%;
+ background:rgba(16,17,20,.92);
+ backdrop-filter:blur(14px);
+ border-bottom:1px solid rgba(255,255,255,.08);
 }
-
-.logo img{
-    height:55px;
-    width:auto;
-}
-
-nav{
-    display:flex;
-    align-items:center;
-    gap:25px;
-}
-
-nav a{
-    color:#fff;
-    font-weight:600;
-    transition:.3s;
-}
-
-nav a:hover{
-    color:var(--primary);
-}
-
-/* ==========================
-   HERO
-========================== */
-
-.hero{
-    min-height:75vh;
-    background:
-        linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
-        url("../img/banner.jpg");
-    background-size:cover;
-    background-position:center;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    color:#fff;
-    padding:40px 20px;
-}
-
-.hero h2{
-    font-size:3rem;
-    margin-bottom:15px;
-}
-
-.hero p{
-    font-size:1.2rem;
-    max-width:700px;
-}
-
-.hero button{
-    margin-top:30px;
-    background:var(--secondary);
-    color:#111;
-    padding:15px 35px;
-    border-radius:12px;
-    font-size:1rem;
-    font-weight:bold;
-}
-
-.hero button:hover{
-    transform:scale(1.05);
-}
-
-/* ==========================
-   BUSCADOR
-========================== */
-
-.buscador{
-    background:#fff;
-    margin:40px auto;
-    width:min(1200px,92%);
-    padding:30px;
-    border-radius:20px;
-    box-shadow:var(--shadow);
-}
-
-.buscador h2{
-    text-align:center;
-    margin-bottom:25px;
-}
-
-.busqueda{
-    display:grid;
-    grid-template-columns:repeat(5,1fr);
-    gap:15px;
-}
-
-.busqueda select,
-.busqueda button{
-    padding:15px;
-    border-radius:10px;
-    border:1px solid #ddd;
-    font-size:15px;
-}
-
-.busqueda button{
-    background:var(--primary);
-    color:#fff;
-    border:none;
-    font-weight:bold;
-}
-
-.busqueda button:hover{
-    background:var(--primary-dark);
-}
-
-/* ==========================
-   FOOTER
-========================== */
-
-footer{
-    background:#111;
-    color:#fff;
-    text-align:center;
-    padding:50px 20px;
-    margin-top:70px;
-}
-
-footer h3{
-    margin-bottom:10px;
-}
-
-footer p{
-    opacity:.8;
-    margin:6px 0;
-}
-
-/* ==========================
-   RESPONSIVE
-========================== */
-
-@media(max-width:900px){
-
-    .header{
-        flex-direction:column;
-        gap:15px;
-    }
-
-    nav{
-        flex-wrap:wrap;
-        justify-content:center;
-    }
-
-    .hero h2{
-        font-size:2.2rem;
-    }
-
-    .busqueda{
-        grid-template-columns:1fr;
-    }
-
-}
-/*==========================
-SLIDER
-==========================*/
+.logo img{height:54px}
+nav{display:flex;gap:26px;align-items:center}
+nav a{color:#fff;font-weight:600}
+nav a:hover{color:var(--secondary)}
 
 .slider{
-    position:relative;
-    height:75vh;
-    overflow:hidden;
+ position:relative;
+ height:72vh;
+ min-height:520px;
+ overflow:hidden;
+ border-radius:0 0 30px 30px;
+ box-shadow:0 20px 60px rgba(0,0,0,.28);
 }
-
 .slide{
-    position:absolute;
-    inset:0;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    color:#fff;
-    opacity:0;
-    transition:opacity .8s;
-    background-size:cover;
-    background-position:center;
+ position:absolute;inset:0;
+ display:flex;align-items:center;
+ opacity:0;
+ transition:opacity .8s;
+ background-size:cover;
+ background-position:center;
 }
-
-.slide:nth-child(1){
-    background:
-    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
-    url("../img/banner1.jpg");
+.slide::before{
+ content:"";
+ position:absolute;inset:0;
+ background:linear-gradient(90deg,rgba(0,0,0,.72),rgba(0,0,0,.35));
 }
-
-.slide:nth-child(2){
-    background:
-    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
-    url("../img/banner2.jpg");
-}
-
-.slide:nth-child(3){
-    background:
-    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
-    url("../img/banner3.jpg");
-}
-
-.slide:nth-child(4){
-    background:
-    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
-    url("../img/banner4.jpg");
-}
-
-.slide.activo{
-    opacity:1;
-}
+.slide.activo{opacity:1}
+.slide:nth-child(1){background-image:url("../img/banner1.jpg")}
+.slide:nth-child(2){background-image:url("../img/banner2.jpg")}
+.slide:nth-child(3){background-image:url("../img/banner3.jpg")}
+.slide:nth-child(4){background-image:url("../img/banner4.jpg")}
 
 .contenido{
-    max-width:700px;
-    padding:20px;
+ position:relative;
+ z-index:2;
+ width:min(620px,90%);
+ margin-left:8%;
+ color:#fff;
 }
-
 .contenido h1{
-    font-size:3rem;
-    margin-bottom:20px;
+ font-size:3.6rem;
+ line-height:1.05;
+ margin-bottom:18px;
 }
-
 .contenido p{
-    font-size:1.2rem;
-    margin-bottom:30px;
+ font-size:1.2rem;
+ margin-bottom:30px;
+ color:#f0f0f0;
 }
-
 .btn-slider{
-    display:inline-block;
-    background:var(--secondary);
-    color:#111;
-    padding:15px 35px;
-    border-radius:12px;
-    font-weight:bold;
+ display:inline-block;
+ background:var(--secondary);
+ color:#111;
+ padding:16px 34px;
+ border-radius:14px;
+ font-weight:700;
 }
-
 .btn-slider:hover{
-    transform:scale(1.05);
+ transform:translateY(-3px);
+ box-shadow:0 12px 30px rgba(245,179,1,.4);
 }
 
 .indicadores{
-    position:absolute;
-    bottom:25px;
-    left:50%;
-    transform:translateX(-50%);
-    display:flex;
-    gap:12px;
+ position:absolute;
+ bottom:22px;
+ width:100%;
+ display:flex;
+ justify-content:center;
+ gap:12px;
 }
-
 .dot{
-    width:14px;
-    height:14px;
-    border-radius:50%;
-    background:#fff;
-    opacity:.4;
+ width:12px;height:12px;
+ border-radius:50%;
+ background:#fff;
+ opacity:.35;
+}
+.dot.activo{
+ opacity:1;
+ background:var(--secondary);
+ transform:scale(1.2);
 }
 
-.dot.activo{
-    opacity:1;
-    background:var(--secondary);
+.buscador{
+ width:min(1200px,92%);
+ margin:-45px auto 50px;
+ background:#fff;
+ border-radius:24px;
+ padding:34px;
+ box-shadow:var(--shadow);
+ position:relative;
+ z-index:20;
+}
+.buscador h2{text-align:center;margin-bottom:24px}
+.busqueda{
+ display:grid;
+ grid-template-columns:repeat(5,1fr);
+ gap:15px;
+}
+.busqueda select,.busqueda button{
+ padding:15px;
+ border-radius:12px;
+ border:1px solid #ddd;
+}
+.busqueda button{
+ background:var(--primary);
+ color:#fff;
+}
+
+.destacados{padding:70px 5%}
+.destacados h2{text-align:center;margin-bottom:36px}
+
+.productos{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+ gap:28px;
+}
+.producto{
+ background:#fff;
+ border-radius:22px;
+ overflow:hidden;
+ border:1px solid rgba(0,0,0,.05);
+ box-shadow:0 12px 35px rgba(0,0,0,.08);
+ transition:.3s;
+}
+.producto:hover{
+ transform:translateY(-8px);
+ box-shadow:0 24px 50px rgba(0,0,0,.14);
+}
+.producto img{
+ height:230px;
+ object-fit:contain;
+ padding:20px;
+}
+.info{padding:22px}
+.marca{color:var(--primary);font-weight:700}
+.precio{
+ font-size:1.7rem;
+ color:var(--primary);
+ font-weight:700;
+ margin:10px 0;
+}
+.producto button{
+ width:100%;
+ padding:15px;
+ border-radius:12px;
+ background:var(--primary);
+ color:#fff;
+}
+
+footer{
+ margin-top:70px;
+ background:#101114;
+ color:#fff;
+ text-align:center;
+ padding:60px 20px;
+}
+
+@media(max-width:900px){
+ .header{flex-direction:column;gap:14px}
+ nav{flex-wrap:wrap;justify-content:center;gap:16px}
+ .slider{height:45vh;min-height:340px;border-radius:0}
+ .contenido{margin:0 auto;text-align:center}
+ .contenido h1{font-size:2.2rem}
+ .contenido p{font-size:1rem}
+ .buscador{margin:25px auto;padding:24px}
+ .busqueda{grid-template-columns:1fr}
 }
