@@ -10,6 +10,13 @@ const productos = [
     categoria:"AGM",
     stock:15,
     descripcion:"Batería AGM de alto desempeño para vehículos con sistema Start-Stop."
+especificaciones: [
+    "CCA: 660",
+    "Voltaje: 12V",
+    "BCI: 47",
+    "Tecnología AGM",
+    "Libre de mantenimiento"
+]
 },
 
 {
