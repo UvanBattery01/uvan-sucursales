@@ -1,25 +1,35 @@
+
 const contenedor = document.querySelector(".productos");
 
-if(contenedor){
+if (contenedor) {
 
-    productos.forEach(producto=>{
+    productos.forEach(producto => {
 
         contenedor.innerHTML += `
-        <div class="producto">
+            <div class="producto">
 
-            <img src="${producto.imagen}" alt="${producto.modelo}">
+                <img src="${producto.imagen}" alt="${producto.modelo}">
 
-            <h3>${producto.marca}</h3>
+                <div class="info">
 
-            <h4>${producto.modelo}</h4>
+                    <span class="marca">${producto.marca}</span>
 
-            <p>$${producto.precio}</p>
+                    <h3>${producto.modelo}</h3>
 
-            <button>Agregar al carrito</button>
+                    <p class="precio">$${producto.precio.toLocaleString("es-MX")}</p>
 
-        </div>
+                    <p class="garantia">Garantía: ${producto.garantia}</p>
+
+                    <p class="stock">
+                        ${producto.stock > 0 ? "✅ Disponible" : "❌ Agotado"}
+                    </p>
+
+                    <button>Agregar al carrito</button>
+
+                </div>
+
+            </div>
         `;
-
     });
 
 }
