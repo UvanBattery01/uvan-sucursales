@@ -1,32 +1,32 @@
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-function guardarCarrito(){
+function guardarCarrito() {
     localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
-function agregarAlCarrito(id){
+function agregarAlCarrito(id) {
 
-    const producto = productos.find(p => p.id === id);
+    id = Number(id);
 
-    if(!producto) return;
+    const producto = productos.find(p => Number(p.id) === id);
 
-    const existe = carrito.find(p => p.id === id);
+    if (!producto) {
+        alert("No se encontró el producto.");
+        return;
+    }
 
-    if(existe){
+    const indice = carrito.findIndex(p => Number(p.id) === id);
 
-        existe.cantidad++;
-
-    }else{
-
+    if (indice >= 0) {
+        carrito[indice].cantidad++;
+    } else {
         carrito.push({
             ...producto,
-            cantidad:1
+            cantidad: 1
         });
-
     }
 
     guardarCarrito();
 
-    alert("Producto agregado al carrito ✅");
-
+    alert("✅ Producto agregado al carrito");
 }
