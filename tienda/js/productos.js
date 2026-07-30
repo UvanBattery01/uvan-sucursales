@@ -4,7 +4,7 @@ const productos = [
     id:1,
     marca:"GONHER",
     modelo:"GP-47 AGM",
-    precio:2599,
+    precio:4500,
     imagen:"img/gp47.png",
     garantia:"5 años",
     categoria:"AGM",
