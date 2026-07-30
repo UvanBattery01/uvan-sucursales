@@ -425,3 +425,20 @@ flex-direction:column;
 }
 
 }
+.btn-producto{
+    display:block;
+    width:100%;
+    margin-top:15px;
+    padding:15px;
+    text-align:center;
+    background:var(--primary);
+    color:#fff;
+    font-weight:700;
+    border-radius:12px;
+    transition:.3s;
+}
+
+.btn-producto:hover{
+    background:var(--primary-dark);
+    transform:translateY(-2px);
+}
