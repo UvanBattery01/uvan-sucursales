@@ -1,56 +1,11 @@
-// Obtener el ID desde la URL
+// Obtener ID del producto desde la URL
 const parametros = new URLSearchParams(window.location.search);
 const id = Number(parametros.get("id"));
 
-// Buscar el producto
+// Buscar producto
 const producto = productos.find(p => p.id === id);
 
-if (producto) {
-
-    // Título de la página
-    document.title = producto.marca + " " + producto.modelo + " | UVAN BATTERY";
-
-    // Marca
-    document.getElementById("marcaProducto").textContent = producto.marca;
-
-    // Modelo
-    document.getElementById("modeloProducto").textContent = producto.modelo;
-
-    // Precio
-    document.getElementById("precioProducto").textContent =
-        "$" + producto.precio.toLocaleString("es-MX");
-
-    // Imagen principal
-    document.getElementById("imagenProducto").src = producto.imagen;
-
-    // Miniaturas
-    document.getElementById("mini1").src = producto.imagen;
-    document.getElementById("mini2").src = producto.imagen;
-    document.getElementById("mini3").src = producto.imagen;
-
-    // Descripción
-    document.getElementById("descripcionProducto").textContent =
-        producto.descripcion;
-
-    // Garantía
-    document.getElementById("garantiaProducto").textContent =
-        "🛡 Garantía " + producto.garantia;
-// Especificaciones
-const lista = document.getElementById("listaEspecificaciones");
-
-if (lista && producto.especificaciones) {
-
-    lista.innerHTML = "";
-
-    producto.especificaciones.forEach(especificacion => {
-
-        lista.innerHTML += `<li>${especificacion}</li>`;
-
-    });
-
-}
-
-} else {
+if (!producto) {
 
     document.body.innerHTML = `
         <h1 style="text-align:center;margin-top:100px;">
@@ -58,16 +13,61 @@ if (lista && producto.especificaciones) {
         </h1>
     `;
 
+    throw new Error("Producto no encontrado");
+
+}
+
+// Cambiar título
+document.title = `${producto.marca} ${producto.modelo} | UVAN BATTERY`;
+
+// Información principal
+document.getElementById("marcaProducto").textContent = producto.marca;
+document.getElementById("modeloProducto").textContent = producto.modelo;
+document.getElementById("precioProducto").textContent =
+    "$" + producto.precio.toLocaleString("es-MX");
+
+document.getElementById("imagenProducto").src = producto.imagen;
+
+document.getElementById("mini1").src = producto.imagen;
+document.getElementById("mini2").src = producto.imagen;
+document.getElementById("mini3").src = producto.imagen;
+
+document.getElementById("descripcionProducto").textContent =
+    producto.descripcion;
+
+document.getElementById("garantiaProducto").textContent =
+    "🛡 Garantía " + producto.garantia;
+
+// Especificaciones
+const lista = document.getElementById("listaEspecificaciones");
+
+if (lista) {
+
+    lista.innerHTML = "";
+
+    if (producto.especificaciones) {
+
+        producto.especificaciones.forEach(item => {
+
+            lista.innerHTML += `<li>${item}</li>`;
+
+        });
+
+    }
+
 }
 
 // Botón Agregar al carrito
 const botonCarrito = document.querySelector(".carrito");
 
-if (botonCarrito && producto) {
+if (botonCarrito) {
 
     botonCarrito.addEventListener("click", () => {
 
         agregarAlCarrito(producto.id);
+
+        // Ir directamente al carrito
+        window.location.href = "carrito.html";
 
     });
 
