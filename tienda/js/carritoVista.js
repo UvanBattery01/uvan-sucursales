@@ -102,33 +102,45 @@ if (botonFinalizar) {
 
     botonFinalizar.addEventListener("click", () => {
 
-        if (carrito.length === 0) {
-            alert("Tu carrito está vacío.");
-            return;
-        }
+    if (carrito.length === 0) {
+        alert("Tu carrito está vacío.");
+        return;
+    }
 
-        let mensaje = "Hola 👋, quiero realizar el siguiente pedido:%0A%0A";
+    const nombre = document.getElementById("nombreCliente").value;
+    const telefono = document.getElementById("telefonoCliente").value;
+    const municipio = document.getElementById("municipioCliente").value;
+    const instalacion = document.getElementById("instalacion").checked
+        ? "Sí"
+        : "No";
 
-        let totalCompra = 0;
+    let mensaje = "🔋 *Nuevo pedido - UVAN BATTERY*%0A%0A";
 
-        carrito.forEach(producto => {
+    mensaje += `👤 Nombre: ${nombre}%0A`;
+    mensaje += `📞 Teléfono: ${telefono}%0A`;
+    mensaje += `📍 Municipio: ${municipio}%0A`;
+    mensaje += `🛠 Instalación: ${instalacion}%0A%0A`;
 
-            const subtotal = producto.precio * producto.cantidad;
-            totalCompra += subtotal;
+    mensaje += "🛒 *Productos:*%0A%0A";
 
-            mensaje += `🔋 ${producto.marca} ${producto.modelo}%0A`;
-            mensaje += `Cantidad: ${producto.cantidad}%0A`;
-            mensaje += `Subtotal: $${subtotal.toLocaleString("es-MX")}%0A%0A`;
+    let totalCompra = 0;
 
-        });
+    carrito.forEach(producto => {
 
-        mensaje += `💰 Total: $${totalCompra.toLocaleString("es-MX")}`;
+        const subtotal = producto.precio * producto.cantidad;
+        totalCompra += subtotal;
 
-        window.open(
-            `https://wa.me/525615855066?text=${mensaje}`,
-            "_blank"
-        );
+        mensaje += `• ${producto.marca} ${producto.modelo}%0A`;
+        mensaje += `Cantidad: ${producto.cantidad}%0A`;
+        mensaje += `Subtotal: $${subtotal.toLocaleString("es-MX")}%0A%0A`;
 
     });
 
-}
+    mensaje += `💰 *TOTAL:* $${totalCompra.toLocaleString("es-MX")}`;
+
+    window.open(
+        `https://wa.me/525615855066?text=${mensaje}`,
+        "_blank"
+    );
+
+});
