@@ -715,3 +715,27 @@ height:150px;
 #finalizarCompra:hover{
     transform:translateY(-2px);
 }
+.btn-tienda,
+.btn-sucursales{
+
+background:#f7b500;
+color:#111;
+
+padding:12px 20px;
+
+border-radius:12px;
+
+font-weight:700;
+
+text-decoration:none;
+
+transition:.3s;
+
+}
+
+.btn-tienda:hover,
+.btn-sucursales:hover{
+
+transform:translateY(-2px);
+
+}
