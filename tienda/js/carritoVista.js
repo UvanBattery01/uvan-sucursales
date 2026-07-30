@@ -1,120 +1,65 @@
-const lista=document.getElementById("listaCarrito");
+const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-const total=document.getElementById("total");
-
-let carrito=JSON.parse(localStorage.getItem("carrito"))||[];
-
-function guardar(){
-
-localStorage.setItem("carrito",JSON.stringify(carrito));
-
-}
+const lista = document.getElementById("listaCarrito");
+const total = document.getElementById("total");
 
 function mostrarCarrito(){
 
-lista.innerHTML="";
+    lista.innerHTML = "";
 
-let suma=0;
+    let totalCompra = 0;
 
-if(carrito.length===0){
+    if(carrito.length === 0){
 
-lista.innerHTML=`
-<div class="carrito-vacio">
+        lista.innerHTML = "<p>Tu carrito está vacío.</p>";
+        total.textContent = "$0";
+        return;
 
-<h2>🛒 Tu carrito está vacío</h2>
+    }
 
-<p>Agrega una batería para comenzar.</p>
+    carrito.forEach((producto, index)=>{
 
-<a href="catalogo.html" class="btn-producto">
-Ir al catálogo
-</a>
+        const subtotal = producto.precio * producto.cantidad;
 
-</div>
-`;
+        totalCompra += subtotal;
 
-total.textContent="$0";
+        lista.innerHTML += `
+            <div class="producto-carrito">
 
-return;
+                <img src="${producto.imagen}" alt="${producto.modelo}">
 
-}
+                <div class="info">
 
-carrito.forEach((producto,index)=>{
+                    <h3>${producto.marca} ${producto.modelo}</h3>
 
-suma+=producto.precio*producto.cantidad;
+                    <p>$${producto.precio.toLocaleString("es-MX")}</p>
 
-lista.innerHTML+=`
+                    <p>Cantidad: ${producto.cantidad}</p>
 
-<div class="item-carrito">
+                    <p><strong>Subtotal:</strong> $${subtotal.toLocaleString("es-MX")}</p>
 
-<img src="${producto.imagen}">
+                    <button onclick="eliminarProducto(${index})">
+                        🗑 Eliminar
+                    </button>
 
-<div>
+                </div>
 
-<h2>${producto.marca}</h2>
+            </div>
+        `;
 
-<h3>${producto.modelo}</h3>
+    });
 
-<p>$${producto.precio.toLocaleString("es-MX")}</p>
-
-</div>
-
-<div class="acciones">
-
-<button onclick="menos(${index})">-</button>
-
-<span>${producto.cantidad}</span>
-
-<button onclick="mas(${index})">+</button>
-
-<button onclick="eliminar(${index})">
-
-🗑
-
-</button>
-
-</div>
-
-</div>
-
-`;
-
-});
-
-total.textContent="$"+suma.toLocaleString("es-MX");
+    total.textContent = "$" + totalCompra.toLocaleString("es-MX");
 
 }
 
-function mas(i){
+function eliminarProducto(index){
 
-carrito[i].cantidad++;
+    carrito.splice(index,1);
 
-guardar();
+    localStorage.setItem("carrito", JSON.stringify(carrito));
 
-mostrarCarrito();
-
-}
-
-function menos(i){
-
-if(carrito[i].cantidad>1){
-
-carrito[i].cantidad--;
-
-guardar();
-
-mostrarCarrito();
-
-}
-
-}
-
-function eliminar(i){
-
-carrito.splice(i,1);
-
-guardar();
-
-mostrarCarrito();
+    mostrarCarrito();
 
 }
 
