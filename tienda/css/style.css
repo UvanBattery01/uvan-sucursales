@@ -605,21 +605,35 @@ flex:1;
 }
 
 .controles{
-display:flex;
-align-items:center;
-gap:12px;
-margin:15px 0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:18px;
+    margin:20px 0;
+}
+
+.controles span{
+    min-width:30px;
+    text-align:center;
+    font-size:22px;
+    font-weight:700;
 }
 
 .controles button{
-width:40px;
-height:40px;
-border:none;
-border-radius:10px;
-background:#6b2dbd;
-color:#fff;
-font-size:22px;
-cursor:pointer;
+    width:48px;
+    height:48px;
+    border:none;
+    border-radius:12px;
+    background:#6b2dbd;
+    color:#fff;
+    font-size:26px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.controles button:hover{
+    transform:scale(1.08);
 }
 
 .eliminar{
