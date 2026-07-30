@@ -9,7 +9,7 @@ const productos = [
     garantia:"5 años",
     categoria:"AGM",
     stock:15,
-    descripcion:"Batería AGM de alto desempeño para vehículos con sistema Start-Stop."
+    descripcion:"Batería AGM de alto desempeño para vehículos con sistema Start-Stop.",
 especificaciones: [
     "CCA: 660",
     "Voltaje: 12V",
