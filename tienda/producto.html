@@ -19,70 +19,49 @@
 </a>
 
 <nav>
-
 <a href="index.html">Inicio</a>
 <a href="catalogo.html">Catálogo</a>
 <a href="carrito.html">Carrito</a>
-
 </nav>
 
 </header>
-
 
 <main class="detalle-producto">
 
 <div class="galeria">
 
 <div class="imagen-principal">
-
-<img id="imagenProducto" src="img/gp47.png" alt="Producto">
-
+<img id="imagenProducto" src="" alt="Producto">
 </div>
 
 <div class="miniaturas">
-
-<img src="img/gp47.png" class="mini activa">
-
-<img src="img/gp47.png" class="mini">
-
-<img src="img/gp47.png" class="mini">
-
+<img id="mini1" src="" class="mini activa">
+<img id="mini2" src="" class="mini">
+<img id="mini3" src="" class="mini">
 </div>
 
 </div>
-
-
 
 <div class="info-producto">
 
-<span class="marca">GONHER</span>
+<span class="marca" id="marcaProducto"></span>
 
-<h1>GP-47 AGM</h1>
+<h1 id="modeloProducto"></h1>
 
 <div class="estrellas">
-
 ⭐⭐⭐⭐⭐
 <span>(4.9)</span>
-
 </div>
 
-<h2 class="precio">$2,599</h2>
+<h2 class="precio" id="precioProducto"></h2>
 
 <div class="badges">
-
 <span>🚚 Envío Gratis</span>
-
 <span>🛠 Instalación Disponible</span>
-
-<span>🛡 Garantía 5 años</span>
-
+<span id="garantiaProducto"></span>
 </div>
 
-<p class="descripcion">
-
-Batería AGM de alto desempeño para vehículos con sistema Start-Stop.
-
-</p>
+<p class="descripcion" id="descripcionProducto"></p>
 
 <div class="cantidad">
 
@@ -95,44 +74,25 @@ Batería AGM de alto desempeño para vehículos con sistema Start-Stop.
 </div>
 
 <button class="comprar">
-
 Comprar ahora
-
 </button>
 
 <button class="carrito">
-
 Agregar al carrito
-
 </button>
 
 </div>
 
 </main>
 
-
-
 <section class="especificaciones">
 
 <h2>Especificaciones</h2>
 
-<ul>
-
-<li>CCA: 660</li>
-
-<li>Voltaje: 12V</li>
-
-<li>BCI: 47</li>
-
-<li>Tecnología AGM</li>
-
-<li>Libre de mantenimiento</li>
-
+<ul id="listaEspecificaciones">
 </ul>
 
 </section>
-
-
 
 <section class="relacionados">
 
@@ -140,12 +100,11 @@ Agregar al carrito
 
 <div class="productos">
 
-<!-- Aquí después cargaremos productos automáticamente -->
+<!-- Aquí cargaremos productos relacionados -->
 
 </div>
 
 </section>
-
 
 <footer>
 
