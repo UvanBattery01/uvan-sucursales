@@ -72,3 +72,43 @@ if (botonCarrito && producto) {
     });
 
 }
+
+// Productos relacionados
+const relacionados = document.getElementById("productosRelacionados");
+
+if (relacionados) {
+
+    relacionados.innerHTML = "";
+
+    productos
+        .filter(p => p.id !== producto.id)
+        .slice(0, 4)
+        .forEach(p => {
+
+            relacionados.innerHTML += `
+                <div class="producto">
+
+                    <img src="${p.imagen}" alt="${p.modelo}">
+
+                    <div class="info">
+
+                        <span class="marca">${p.marca}</span>
+
+                        <h3>${p.modelo}</h3>
+
+                        <p class="precio">
+                            $${p.precio.toLocaleString("es-MX")}
+                        </p>
+
+                        <a href="producto.html?id=${p.id}" class="btn-producto">
+                            Ver producto
+                        </a>
+
+                    </div>
+
+                </div>
+            `;
+
+        });
+
+}
