@@ -96,3 +96,39 @@ function eliminarProducto(index) {
 }
 
 mostrarCarrito();
+const botonFinalizar = document.getElementById("finalizarCompra");
+
+if (botonFinalizar) {
+
+    botonFinalizar.addEventListener("click", () => {
+
+        if (carrito.length === 0) {
+            alert("Tu carrito está vacío.");
+            return;
+        }
+
+        let mensaje = "Hola 👋, quiero realizar el siguiente pedido:%0A%0A";
+
+        let totalCompra = 0;
+
+        carrito.forEach(producto => {
+
+            const subtotal = producto.precio * producto.cantidad;
+            totalCompra += subtotal;
+
+            mensaje += `🔋 ${producto.marca} ${producto.modelo}%0A`;
+            mensaje += `Cantidad: ${producto.cantidad}%0A`;
+            mensaje += `Subtotal: $${subtotal.toLocaleString("es-MX")}%0A%0A`;
+
+        });
+
+        mensaje += `💰 Total: $${totalCompra.toLocaleString("es-MX")}`;
+
+        window.open(
+            `https://wa.me/525615855065?text=${mensaje}`,
+            "_blank"
+        );
+
+    });
+
+}
