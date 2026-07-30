@@ -1,26 +1,33 @@
-const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const lista = document.getElementById("listaCarrito");
 const total = document.getElementById("total");
 
-function mostrarCarrito(){
+function guardarCarrito() {
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+
+function mostrarCarrito() {
 
     lista.innerHTML = "";
 
     let totalCompra = 0;
 
-    if(carrito.length === 0){
+    if (carrito.length === 0) {
 
-        lista.innerHTML = "<p>Tu carrito está vacío.</p>";
+        lista.innerHTML = `
+            <p style="text-align:center;">
+                🛒 Tu carrito está vacío
+            </p>
+        `;
+
         total.textContent = "$0";
         return;
-
     }
 
-    carrito.forEach((producto, index)=>{
+    carrito.forEach((producto, index) => {
 
         const subtotal = producto.precio * producto.cantidad;
-
         totalCompra += subtotal;
 
         lista.innerHTML += `
@@ -32,11 +39,24 @@ function mostrarCarrito(){
 
                     <h3>${producto.marca} ${producto.modelo}</h3>
 
-                    <p>$${producto.precio.toLocaleString("es-MX")}</p>
+                    <p class="precio">
+                        $${producto.precio.toLocaleString("es-MX")}
+                    </p>
 
-                    <p>Cantidad: ${producto.cantidad}</p>
+                    <div class="cantidad">
 
-                    <p><strong>Subtotal:</strong> $${subtotal.toLocaleString("es-MX")}</p>
+                        <button onclick="cambiarCantidad(${index}, -1)">−</button>
+
+                        <span>${producto.cantidad}</span>
+
+                        <button onclick="cambiarCantidad(${index}, 1)">+</button>
+
+                    </div>
+
+                    <p>
+                        <strong>Subtotal:</strong>
+                        $${subtotal.toLocaleString("es-MX")}
+                    </p>
 
                     <button onclick="eliminarProducto(${index})">
                         🗑 Eliminar
@@ -53,12 +73,24 @@ function mostrarCarrito(){
 
 }
 
-function eliminarProducto(index){
+function cambiarCantidad(index, cambio) {
 
-    carrito.splice(index,1);
+    carrito[index].cantidad += cambio;
 
-    localStorage.setItem("carrito", JSON.stringify(carrito));
+    if (carrito[index].cantidad <= 0) {
+        carrito.splice(index, 1);
+    }
 
+    guardarCarrito();
+    mostrarCarrito();
+
+}
+
+function eliminarProducto(index) {
+
+    carrito.splice(index, 1);
+
+    guardarCarrito();
     mostrarCarrito();
 
 }
