@@ -5,50 +5,53 @@ const id = Number(parametros.get("id"));
 // Buscar el producto
 const producto = productos.find(p => p.id === id);
 
-if(producto){
+if (producto) {
 
     // Título de la página
     document.title = producto.marca + " " + producto.modelo + " | UVAN BATTERY";
 
     // Marca
-    document.querySelector(".marca").textContent = producto.marca;
+    document.getElementById("marcaProducto").textContent = producto.marca;
 
     // Modelo
-    document.querySelector("h1").textContent = producto.modelo;
+    document.getElementById("modeloProducto").textContent = producto.modelo;
 
     // Precio
-    document.querySelector(".precio").textContent =
-    "$" + producto.precio.toLocaleString("es-MX");
+    document.getElementById("precioProducto").textContent =
+        "$" + producto.precio.toLocaleString("es-MX");
 
-    // Imagen
+    // Imagen principal
     document.getElementById("imagenProducto").src = producto.imagen;
 
+    // Miniaturas
+    document.getElementById("mini1").src = producto.imagen;
+    document.getElementById("mini2").src = producto.imagen;
+    document.getElementById("mini3").src = producto.imagen;
+
     // Descripción
-    document.querySelector(".descripcion").textContent =
-    producto.descripcion;
+    document.getElementById("descripcionProducto").textContent =
+        producto.descripcion;
 
     // Garantía
-    document.querySelector(".badges").innerHTML = `
-        <span>🛡 Garantía ${producto.garantia}</span>
-        <span>🚚 Envío disponible</span>
-        <span>📦 Stock ${producto.stock}</span>
+    document.getElementById("garantiaProducto").textContent =
+        "🛡 Garantía " + producto.garantia;
+
+} else {
+
+    document.body.innerHTML = `
+        <h1 style="text-align:center;margin-top:100px;">
+            Producto no encontrado
+        </h1>
     `;
 
 }
-else{
 
-document.body.innerHTML=`
-<h1 style="text-align:center;margin-top:100px;">
-Producto no encontrado
-</h1>
-`;
-
-}
+// Botón Agregar al carrito
 const botonCarrito = document.querySelector(".carrito");
 
-if(botonCarrito){
+if (botonCarrito && producto) {
 
-    botonCarrito.addEventListener("click", ()=>{
+    botonCarrito.addEventListener("click", () => {
 
         agregarAlCarrito(producto.id);
 
