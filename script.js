@@ -20,7 +20,7 @@ const mensajes = [
   "⚡ Cliente volvió a arrancar su vehículo",
   "🔧 Diagnóstico de batería realizado",
   "🔌 Revisión del sistema de carga completada",
-  "💳 Cliente aprovechó 3 MSI",
+  "💳 Cliente pagó con tarjeta",
   "🎁 Promoción aplicada exitosamente",
   "⭐ Cliente calificó el servicio con 5 estrellas",
   "😊 Cliente satisfecho con la atención",
@@ -33,6 +33,7 @@ const mensajes = [
   "💯 Otro cliente eligió UVAN BATTERY",
   "🔥 Cliente aprovechó la promoción del mes",
   "🎉 ¡Otra venta completada!"
+  "🏪 próximamente sucursal ZARAGOZA"
 ];
 
 const popup = document.getElementById("popup");
