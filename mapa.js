@@ -113,7 +113,7 @@ nombre:"Ermita",
 lat:19.3506626,
 lng:-99.0176752,
 url:"https://maps.app.goo.gl/ZbhjniLhFK2E5akT6"
-}
+},
 {
 nombre:"Zaragoza",
 lat:19.3822630,
