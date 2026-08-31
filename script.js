@@ -32,8 +32,8 @@ const mensajes = [
   "🛡️ Garantía entregada al cliente",
   "💯 Otro cliente eligió UVAN BATTERY",
   "🔥 Cliente aprovechó la promoción del mes",
-  "🎉 ¡Otra venta completada!"
-  "🏪 próximamente sucursal ZARAGOZA"
+  "🎉 ¡Otra venta completada!",
+  "🏪 ¡Nueva sucursal Zaragoza abierta! "
 ];
 
 const popup = document.getElementById("popup");
@@ -71,6 +71,7 @@ const horarios = {
 const sucursales = [
   "estado-texcoco",
   "estado-chicoloapan",
+  "estado-zaragoza",
   "estado-central",
   "estado-santarosa",
   "estado-neza",
@@ -172,6 +173,7 @@ function actualizarEstados() {
   const configs = {
     "estado-texcoco": { closedOnSunday: false },
     "estado-chicoloapan": { closedOnSunday: false },
+"estado-zaragoza": { closedOnSunday: true },
     "estado-central": { closedOnSunday: true },
     "estado-santarosa": { closedOnSunday: false },
     "estado-neza": { closedOnSunday: false },
