@@ -3,7 +3,7 @@ const CACHE_NAME = "uvanbattery-v5";
 const urlsToCache = [
   "/styles.css?v=5",
   "/menu.css?v=1",
-  "/script.js?v=6",
+  "/script.js?v=7",
   "/menu.js?v=1",
   "/buscador.js?v=1",
   "/manifest.webmanifest",
