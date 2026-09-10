@@ -1,352 +1,1010 @@
 /* ==========================================================
-UVAN BATTERY - PREMIUM UI v2.1 (Performance Edition)
-========================================================== */
+   🇲🇽 UVAN BATTERY — PREMIUM UI
+   MES PATRIO EDITION
+   ========================================================== */
 
 :root{
---bg:#f4f6f9;
---card:rgba(255,255,255,.88);
---text:#1d1d1f;
---muted:#6b7280;
---primary:#d60000;
---primary2:#ff3030;
---success:#16a34a;
---warning:#f59e0b;
---danger:#dc2626;
---radius:22px;
---shadow:0 4px 12px rgba(0,0,0,.08);
+    --bg:#f4f6f9;
+    --card:rgba(255,255,255,.94);
+    --text:#1d1d1f;
+    --muted:#6b7280;
+
+    /* UVAN */
+    --primary:#d60000;
+    --primary2:#ff3030;
+
+    /* 🇲🇽 MÉXICO */
+    --mex-green:#006847;
+    --mex-red:#ce1126;
+    --mex-white:#ffffff;
+
+    --success:#16a34a;
+    --warning:#f59e0b;
+    --danger:#dc2626;
+
+    --radius:22px;
+    --shadow:0 4px 12px rgba(0,0,0,.08);
+
+    --patrio-gradient:
+        linear-gradient(
+            90deg,
+            var(--mex-green) 0%,
+            var(--mex-green) 33%,
+            #ffffff 33%,
+            #ffffff 66%,
+            var(--mex-red) 66%,
+            var(--mex-red) 100%
+        );
 }
+
+
+/* ==========================================================
+   RESET
+   ========================================================== */
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
--webkit-tap-highlight-color:transparent;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
 }
 
-html{scroll-behavior:smooth}
+html{
+    scroll-behavior:smooth;
+}
 
 body{
-font-family:Inter,Arial,sans-serif;
-color:var(--text);
-line-height:1.6;
-background:
-radial-gradient(circle at top,#ffd9d9 0,#fff 35%),
-linear-gradient(#fff,#f4f6f9);
-overflow-x:hidden;
-text-rendering:optimizeLegibility;
+    font-family:Inter,Arial,sans-serif;
+    color:var(--text);
+    line-height:1.6;
+
+    background:
+        radial-gradient(
+            circle at 15% 0%,
+            rgba(0,104,71,.08) 0,
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 85% 0%,
+            rgba(206,17,38,.10) 0,
+            transparent 30%
+        ),
+        linear-gradient(
+            #fff,
+            var(--bg)
+        );
+
+    overflow-x:hidden;
+    text-rendering:optimizeLegibility;
 }
 
-a{text-decoration:none;color:inherit}
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+
+/* ==========================================================
+   🇲🇽 DETALLE PATRIO SUPERIOR
+   ========================================================== */
+
+body::before{
+    content:"";
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--mex-green) 0%,
+            var(--mex-green) 33%,
+            #ffffff 33%,
+            #ffffff 66%,
+            var(--mex-red) 66%,
+            var(--mex-red) 100%
+        );
+
+    z-index:9999;
+}
+
+
+/* ==========================================================
+   HERO
+   ========================================================== */
 
 .hero{
-position:relative;
-overflow:hidden;
-text-align:center;
-padding:90px 20px 45px;
+    position:relative;
+    overflow:hidden;
+    text-align:center;
+
+    padding:90px 20px 45px;
 }
+
+
+/* brillo verde */
 
 .hero::before{
-content:"";
-position:absolute;
-width:420px;
-height:420px;
-background:#ff3a3a;
-filter:blur(50px);
-opacity:.08;
-top:-200px;
-left:50%;
-transform:translateX(-50%);
+    content:"";
+
+    position:absolute;
+
+    width:420px;
+    height:420px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0,104,71,.28),
+            transparent 70%
+        );
+
+    filter:blur(50px);
+    opacity:.25;
+
+    top:-200px;
+    left:15%;
+
+    pointer-events:none;
 }
 
-.logo{width:140px;position:relative;z-index:2}
 
-.hero h1{font-size:2.2rem;margin-top:10px}
-.hero p{color:var(--muted)}
+/* brillo rojo */
 
-.promo,.buscador,.card,.popup{
-background:#ffffff;
-border:1px solid rgba(0,0,0,.06);
-box-shadow:0 4px 12px rgba(0,0,0,.08);
+.hero::after{
+    content:"";
+
+    position:absolute;
+
+    width:420px;
+    height:420px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(206,17,38,.28),
+            transparent 70%
+        );
+
+    filter:blur(50px);
+    opacity:.25;
+
+    top:-200px;
+    right:15%;
+
+    pointer-events:none;
 }
 
-.promo,.buscador{
-max-width:760px;
-margin:28px auto;
-padding:28px;
-border-radius:var(--radius);
+
+.logo{
+    width:140px;
+    position:relative;
+    z-index:2;
 }
+
+.hero h1{
+    font-size:2.2rem;
+    margin-top:10px;
+    position:relative;
+    z-index:2;
+}
+
+.hero p{
+    color:var(--muted);
+    position:relative;
+    z-index:2;
+}
+
+
+/* pequeño distintivo patrio */
+
+.hero::marker{
+    display:none;
+}
+
+
+/* ==========================================================
+   🇲🇽 FRANJA PATRIA DECORATIVA
+   ========================================================== */
+
+.promo::before,
+.buscador::before{
+    content:"";
+    display:block;
+
+    width:100%;
+    height:4px;
+
+    margin-bottom:22px;
+
+    border-radius:999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--mex-green) 0%,
+            var(--mex-green) 33%,
+            #ffffff 33%,
+            #ffffff 66%,
+            var(--mex-red) 66%,
+            var(--mex-red) 100%
+        );
+}
+
+
+/* ==========================================================
+   CARDS / CONTENEDORES
+   ========================================================== */
+
+.promo,
+.buscador,
+.card,
+.popup{
+    background:var(--card);
+
+    border:1px solid rgba(0,0,0,.06);
+
+    box-shadow:
+        0 4px 12px rgba(0,0,0,.08);
+
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+}
+
+
+.promo,
+.buscador{
+    max-width:760px;
+    margin:28px auto;
+
+    padding:28px;
+
+    border-radius:var(--radius);
+
+    position:relative;
+    overflow:hidden;
+}
+
+
+/* ==========================================================
+   BOTONES UVAN
+   ========================================================== */
 
 .btn{
-display:inline-block;
-margin-top:16px;
-padding:15px 22px;
-border:none;
-border-radius:18px;
-color:#fff;
-font-weight:700;
-background:linear-gradient(135deg,var(--primary2),var(--primary));
-box-shadow:0 8px 18px rgba(214,0,0,.22);
-transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease;
-cursor:pointer;
+    display:inline-block;
+
+    margin-top:16px;
+
+    padding:15px 22px;
+
+    border:none;
+    border-radius:18px;
+
+    color:#fff;
+
+    font-weight:700;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary2),
+            var(--primary)
+        );
+
+    box-shadow:
+        0 8px 18px rgba(214,0,0,.22);
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        background-color .2s ease;
+
+    cursor:pointer;
+
+    position:relative;
+    overflow:hidden;
 }
 
-.btn:hover{transform:translateY(-2px)}
-.btn:active{transform:scale(.98)}
 
-.titulo{text-align:center;margin:40px 0 25px;color:var(--primary)}
+/* pequeño brillo patrio */
 
-select,button{
-width:100%;
-height:58px;
-border-radius:18px;
-font-size:16px;
+.btn::after{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:0;
+
+    width:100%;
+    height:3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--mex-green) 0%,
+            var(--mex-green) 33%,
+            #ffffff 33%,
+            #ffffff 66%,
+            var(--mex-red) 66%,
+            var(--mex-red) 100%
+        );
 }
+
+
+.btn:hover{
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 12px 24px rgba(214,0,0,.28);
+}
+
+.btn:active{
+    transform:scale(.98);
+}
+
+
+/* ==========================================================
+   TÍTULOS
+   ========================================================== */
+
+.titulo{
+    text-align:center;
+
+    margin:40px 0 25px;
+
+    color:var(--primary);
+
+    position:relative;
+}
+
+
+/* 🇲🇽 línea tricolor debajo del título */
+
+.titulo::after{
+    content:"";
+
+    display:block;
+
+    width:72px;
+    height:4px;
+
+    margin:10px auto 0;
+
+    border-radius:999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--mex-green) 0%,
+            var(--mex-green) 33%,
+            #ffffff 33%,
+            #ffffff 66%,
+            var(--mex-red) 66%,
+            var(--mex-red) 100%
+        );
+}
+
+
+/* ==========================================================
+   SELECT / BOTONES
+   ========================================================== */
+
+select,
+button{
+    width:100%;
+    height:58px;
+
+    border-radius:18px;
+
+    font-size:16px;
+}
+
 
 select{
-margin-bottom:16px;
-border:2px solid #ececec;
-padding:0 18px;
-background:#fafafa;
+    margin-bottom:16px;
+
+    border:2px solid #ececec;
+
+    padding:0 18px;
+
+    background:#fafafa;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease;
 }
 
-#resultado{margin-top:24px;padding-top:20px;border-top:1px solid #eee}
-#resultado h1{font-size:62px;color:var(--primary)}
+
+select:focus{
+    outline:none;
+
+    border-color:var(--mex-green);
+
+    box-shadow:
+        0 0 0 4px rgba(0,104,71,.08);
+}
+
+
+/* ==========================================================
+   RESULTADO
+   ========================================================== */
+
+#resultado{
+    margin-top:24px;
+
+    padding-top:20px;
+
+    border-top:1px solid #eee;
+}
+
+#resultado h1{
+    font-size:62px;
+    color:var(--primary);
+}
+
+
+/* ==========================================================
+   SUCURSALES
+   ========================================================== */
 
 .card{
-display:block;
-margin:18px;
-padding:24px;
-border-radius:24px;
-transition:transform .2s ease,box-shadow .2s ease;
-content-visibility:auto;
-contain-intrinsic-size:280px;
+    display:block;
+
+    margin:18px;
+    padding:24px;
+
+    border-radius:24px;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+
+    content-visibility:auto;
+    contain-intrinsic-size:280px;
+
+    position:relative;
+    overflow:hidden;
 }
 
-.card:hover{transform:translateY(-4px)}
+
+/* 🇲🇽 línea tricolor superior */
+
+.card::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--mex-green) 0%,
+            var(--mex-green) 33%,
+            #ffffff 33%,
+            #ffffff 66%,
+            var(--mex-red) 66%,
+            var(--mex-red) 100%
+        );
+}
+
+
+.card:hover{
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.10);
+}
+
+
+/* ==========================================================
+   ESTADOS
+   ========================================================== */
 
 .estado{
-margin:12px 0;
-padding:14px 16px;
-border-radius:18px;
-background:#fff;
-border:1px solid #ececec;
+    margin:12px 0;
+
+    padding:14px 16px;
+
+    border-radius:18px;
+
+    background:#fff;
+
+    border:1px solid #ececec;
 }
 
-.estado-box{display:flex;gap:12px;align-items:flex-start}
-.estado-dot{width:12px;height:12px;border-radius:50%;margin-top:6px}
-.open .estado-dot{background:#22c55e}
-.closed .estado-dot{background:#dc2626}
-.closing-soon .estado-dot,.opening-soon .estado-dot{background:#f59e0b}
+.estado-box{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+}
+
+.estado-dot{
+    width:12px;
+    height:12px;
+
+    border-radius:50%;
+
+    margin-top:6px;
+
+    flex-shrink:0;
+}
+
+.open .estado-dot{
+    background:#22c55e;
+}
+
+.closed .estado-dot{
+    background:#dc2626;
+}
+
+.closing-soon .estado-dot,
+.opening-soon .estado-dot{
+    background:#f59e0b;
+}
+
+
+/* ==========================================================
+   WHATSAPP FLOTANTE
+   ========================================================== */
 
 .float{
-position:fixed;
-right:20px;
-bottom:20px;
-background:#25D366;
-color:#fff;
-padding:17px 22px;
-border-radius:999px;
-box-shadow:0 10px 20px rgba(0,0,0,.22);
-z-index:999;
+    position:fixed;
+
+    right:20px;
+    bottom:20px;
+
+    background:#25D366;
+    color:#fff;
+
+    padding:17px 22px;
+
+    border-radius:999px;
+
+    box-shadow:
+        0 10px 20px rgba(0,0,0,.22);
+
+    z-index:999;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
 }
+
+.float:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 14px 28px rgba(0,0,0,.25);
+}
+
+
+/* ==========================================================
+   POPUP
+   ========================================================== */
 
 .popup{
-position:fixed;
-left:20px;
-bottom:95px;
-max-width:330px;
-padding:16px;
-border-radius:20px;
-transform:translateY(150%);
-transition:transform .35s ease;
-z-index:999;
+    position:fixed;
+
+    left:20px;
+    bottom:95px;
+
+    max-width:330px;
+
+    padding:16px;
+
+    border-radius:20px;
+
+    transform:translateY(150%);
+
+    transition:
+        transform .35s ease;
+
+    z-index:999;
 }
 
-.popup.show{transform:translateY(0)}
+.popup.show{
+    transform:translateY(0);
+}
+
+
+/* ==========================================================
+   🇲🇽 MODO OSCURO
+   ========================================================== */
 
 body.dark{
---card:rgba(28,32,40,.90);
---text:#f5f5f5;
---muted:#a5acb8;
-background:
-radial-gradient(circle at top,#4a0000 0,#0d1117 35%),
-#0d1117;
+    --card:rgba(28,32,40,.92);
+
+    --text:#f5f5f5;
+    --muted:#a5acb8;
+
+    background:
+        radial-gradient(
+            circle at 15% 0%,
+            rgba(0,104,71,.22),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 85% 0%,
+            rgba(206,17,38,.22),
+            transparent 30%
+        ),
+        #0d1117;
 }
+
 
 body.dark .promo,
 body.dark .buscador,
 body.dark .card,
 body.dark .popup,
 body.dark .estado{
-background:var(--card);
-color:var(--text);
-border-color:#303845;
+    background:var(--card);
+
+    color:var(--text);
+
+    border-color:#303845;
 }
 
-@media(max-width:700px){
-.hero{padding:90px 16px 35px}
-.logo{width:120px}
-.card{margin:12px;padding:20px}
-.buscador{margin:20px 12px;padding:20px}
-.popup{left:10px;right:10px;max-width:none}
-#resultado h1{font-size:48px}
+
+body.dark select{
+    background:#161b22;
+    color:#fff;
+    border-color:#303845;
 }
+
+
+body.dark #resultado{
+    border-color:#303845;
+}
+
+
+/* ==========================================================
+   FOOTER
+   ========================================================== */
 
 .footer{
-background:#0f0f0f;
-color:#fff;
-text-align:center;
-padding:50px 20px 30px;
-border-top:2px solid #d40000;
+    background:#0f0f0f;
+
+    color:#fff;
+
+    text-align:center;
+
+    padding:50px 20px 30px;
+
+    border-top:none;
+
+    position:relative;
 }
+
+
+/* 🇲🇽 franja tricolor */
+
+.footer::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--mex-green) 0%,
+            var(--mex-green) 33%,
+            #ffffff 33%,
+            #ffffff 66%,
+            var(--mex-red) 66%,
+            var(--mex-red) 100%
+        );
+}
+
 
 .footer-logo{
-width:90px;
-margin-bottom:15px;
+    width:90px;
+    margin-bottom:15px;
 }
+
 
 .footer h3{
-font-size:1.8rem;
-margin-bottom:8px;
+    font-size:1.8rem;
+    margin-bottom:8px;
 }
+
 
 .footer p{
-color:#cfcfcf;
+    color:#cfcfcf;
 }
+
 
 .footer-links{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:18px;
-margin:30px 0;
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:18px;
+
+    margin:30px 0;
 }
+
 
 .footer-links a{
-color:#fff;
-text-decoration:none;
-transition:.3s;
-font-weight:bold;
+    color:#fff;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+    font-weight:bold;
 }
+
 
 .footer-links a:hover{
-color:#ff2d2d;
+    color:#ff2d2d;
 }
+
+
+/* ==========================================================
+   REDES DEL FOOTER
+   ========================================================== */
 
 .footer-social{
-display:flex;
-justify-content:center;
-gap:18px;
-margin:25px 0;
+    display:flex;
+
+    justify-content:center;
+
+    gap:18px;
+
+    margin:25px 0;
 }
 
-.social-section{
-padding:60px 20px;
-text-align:center;
-background:#111;
-color:#fff;
-}
-
-.social-section h2{
-font-size:2rem;
-margin-bottom:10px;
-}
-
-.social-section p{
-color:#ccc;
-margin-bottom:35px;
-}
-
-.social-links{
-display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
-}
-
-.social-links a{
-display:flex;
-align-items:center;
-gap:10px;
-text-decoration:none;
-color:#fff;
-padding:15px 25px;
-border-radius:12px;
-font-weight:bold;
-transition:.3s;
-}
-
-.facebook{
-background:#1877F2;
-}
-
-.instagram{
-background:linear-gradient(45deg,#833AB4,#FD1D1D,#FCAF45);
-}
-
-.tiktok{
-background:#000;
-border:1px solid #444;
-}
-
-.social-links a:hover{
-transform:translateY(-5px);
-box-shadow:0 10px 25px rgba(0,0,0,.3);
-}
-
-.social-links i{
-font-size:22px;
-}
 
 .footer-social a{
-width:50px;
-height:50px;
-border-radius:50%;
-background:#1d1d1d;
-display:flex;
-align-items:center;
-justify-content:center;
-color:#fff;
-font-size:22px;
-transition:.3s;
+    width:50px;
+    height:50px;
+
+    border-radius:50%;
+
+    background:#1d1d1d;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    color:#fff;
+
+    font-size:22px;
+
+    transition:.3s;
 }
+
 
 .footer-social a:hover{
-background:#d40000;
-transform:translateY(-5px);
+    background:#d40000;
+
+    transform:translateY(-5px);
 }
+
+
+/* ==========================================================
+   SECCIÓN REDES SOCIALES
+   ========================================================== */
+
+.social-section{
+    padding:60px 20px;
+
+    text-align:center;
+
+    background:#111;
+
+    color:#fff;
+
+    position:relative;
+}
+
+
+/* 🇲🇽 franja patrio */
+
+.social-section::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--mex-green) 0%,
+            var(--mex-green) 33%,
+            #ffffff 33%,
+            #ffffff 66%,
+            var(--mex-red) 66%,
+            var(--mex-red) 100%
+        );
+}
+
+
+.social-section h2{
+    font-size:2rem;
+    margin-bottom:10px;
+}
+
+
+.social-section p{
+    color:#ccc;
+    margin-bottom:35px;
+}
+
+
+.social-links{
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+}
+
+
+.social-links a{
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    text-decoration:none;
+
+    color:#fff;
+
+    padding:15px 25px;
+
+    border-radius:12px;
+
+    font-weight:bold;
+
+    transition:.3s;
+}
+
+
+.facebook{
+    background:#1877F2;
+}
+
+
+.instagram{
+    background:
+        linear-gradient(
+            45deg,
+            #833AB4,
+            #FD1D1D,
+            #FCAF45
+        );
+}
+
+
+.tiktok{
+    background:#000;
+    border:1px solid #444;
+}
+
+
+.social-links a:hover{
+    transform:translateY(-5px);
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.3);
+}
+
+
+.social-links i{
+    font-size:22px;
+}
+
+
+/* ==========================================================
+   HORARIO
+   ========================================================== */
 
 .footer-horario{
-margin:25px 0;
-color:#bfbfbf;
-line-height:1.8;
+    margin:25px 0;
+
+    color:#bfbfbf;
+
+    line-height:1.8;
 }
+
 
 .copyright{
-margin-top:25px;
-font-size:.9rem;
-color:#888;
+    margin-top:25px;
+
+    font-size:.9rem;
+
+    color:#888;
 }
 
-/* ===== MAPA GOOGLE ===== */
+
+/* ==========================================================
+   MAPA
+   ========================================================== */
 
 .mapa-section{
     padding:50px 20px;
+
+    position:relative;
 }
+
+
+/* 🇲🇽 decoración sutil alrededor del mapa */
+
+.mapa-section::before{
+    content:"";
+
+    display:block;
+
+    width:90px;
+    height:4px;
+
+    margin:0 auto 20px;
+
+    border-radius:999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--mex-green) 0%,
+            var(--mex-green) 33%,
+            #ffffff 33%,
+            #ffffff 66%,
+            var(--mex-red) 66%,
+            var(--mex-red) 100%
+        );
+}
+
 
 .mapa-texto{
     text-align:center;
+
     color:#666;
+
     margin-bottom:20px;
 }
 
+
 #map{
     width:100%;
+
     height:500px;
+
     border-radius:20px;
+
     overflow:hidden;
-    box-shadow:0 15px 40px rgba(0,0,0,.15);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.15);
+
+    border:2px solid rgba(0,104,71,.12);
 }
+
 
 @media (max-width:768px){
 
@@ -355,27 +1013,190 @@ color:#888;
     }
 
 }
+
+
+/* ==========================================================
+   BOTONES TIENDA / SUCURSALES
+   ========================================================== */
+
 .btn-tienda,
 .btn-sucursales{
 
-background:#f7b500;
-color:#111;
+    background:#f7b500;
 
-padding:12px 20px;
+    color:#111;
 
-border-radius:12px;
+    padding:12px 20px;
 
-font-weight:700;
+    border-radius:12px;
 
-text-decoration:none;
+    font-weight:700;
 
-transition:.3s;
+    text-decoration:none;
 
+    transition:.3s;
+
+    position:relative;
+
+    overflow:hidden;
 }
+
+
+/* 🇲🇽 pequeño detalle patrio */
+
+.btn-tienda::after,
+.btn-sucursales::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:0;
+    left:0;
+
+    width:100%;
+    height:3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--mex-green) 0%,
+            var(--mex-green) 33%,
+            #ffffff 33%,
+            #ffffff 66%,
+            var(--mex-red) 66%,
+            var(--mex-red) 100%
+        );
+}
+
 
 .btn-tienda:hover,
 .btn-sucursales:hover{
 
-transform:translateY(-2px);
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 8px 18px rgba(0,0,0,.12);
+}
+
+
+/* ==========================================================
+   🇲🇽 DETALLES PATRIOS PARA ELEMENTOS ESPECIALES
+   ========================================================== */
+
+.patrio{
+    position:relative;
+}
+
+
+.patrio::after{
+    content:"";
+
+    display:block;
+
+    width:100%;
+    height:3px;
+
+    margin-top:10px;
+
+    border-radius:999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--mex-green) 0%,
+            var(--mex-green) 33%,
+            #ffffff 33%,
+            #ffffff 66%,
+            var(--mex-red) 66%,
+            var(--mex-red) 100%
+        );
+}
+
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+
+@media(max-width:700px){
+
+    .hero{
+        padding:90px 16px 35px;
+    }
+
+    .logo{
+        width:120px;
+    }
+
+    .hero h1{
+        font-size:1.9rem;
+    }
+
+    .card{
+        margin:12px;
+        padding:20px;
+    }
+
+    .buscador{
+        margin:20px 12px;
+        padding:20px;
+    }
+
+    .promo{
+        margin:20px 12px;
+        padding:20px;
+    }
+
+    .popup{
+        left:10px;
+        right:10px;
+        max-width:none;
+    }
+
+    #resultado h1{
+        font-size:48px;
+    }
+
+    .social-links{
+        gap:12px;
+    }
+
+    .social-links a{
+        width:100%;
+        justify-content:center;
+    }
 
 }
+
+
+/* ==========================================================
+   🇲🇽 ANIMACIÓN MUY SUTIL DEL DETALLE PATRIO
+   ========================================================== */
+
+@keyframes brilloPatrio{
+
+    0%{
+        opacity:.75;
+    }
+
+    50%{
+        opacity:1;
+    }
+
+    100%{
+        opacity:.75;
+    }
+
+}
+
+
+.titulo::after,
+.mapa-section::before{
+    animation:
+        brilloPatrio 3s ease-in-out infinite;
+}
+
+
+/* ==========================================================
+   FIN — UVAN BATTERY 🇲🇽
+   ========================================================== */
