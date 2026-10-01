@@ -91,12 +91,6 @@ lng:-98.9811315,
 url:"https://maps.app.goo.gl/dQoh16cAvsxBdRTa6?g_st=ac"
 },
 {
-nombre:"Los Reyes",
-lat:19.3549919,
-lng:-98.9783215,
-url:"https://maps.app.goo.gl/qCxVFjx7jUmzxoyT9?g_st=ac"
-},
-{
 nombre:"Ixtapaluca",
 lat:19.3111313,
 lng:-98.9066519,
