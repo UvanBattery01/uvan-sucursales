@@ -8,7 +8,6 @@ const mensajes = [
   "🟢 Venta realizada en Chicoloapan",
   "🟢 Venta realizada en Central de Abastos",
   "🟢 Venta realizada en Santa Rosa",
-  "🟢 Venta realizada en Los Reyes",
   "🟢 Venta realizada en Ixtapaluca",
   "🟢 Venta realizada en Nezahualcóyotl",
   "🟢 Venta realizada en Chimalhuacán",
