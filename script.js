@@ -239,12 +239,6 @@ const ubicacionesUVAN = [
     maps: "https://maps.app.goo.gl/GcoLjX25NzuEHpDRA?g_st=ac"
   },
   {
-    nombre: "Los Reyes",
-    lat: 19.3550337,
-    lng: -98.9782987,
-    maps: "https://maps.app.goo.gl/L4ubcM3Jfp35oP3KA"
-  },
-  {
     nombre: "Chimalhuacán",
     lat: 19.4289192,
     lng: -98.9622497,
