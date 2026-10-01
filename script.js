@@ -268,6 +268,12 @@ const ubicacionesUVAN = [
     lng: -99.0176759,
     maps: "https://maps.app.goo.gl/cK1w6S12ywzBXtAFA?g_st=ac"
   }
+{
+    nombre: "Zaragoza",
+    lat: 19.3822630,
+    lng: -99.0299500,
+    maps: "https://maps.app.goo.gl/9uiX5Advr6fyXXDV9"
+}
 ];
 
 function distanciaKm(lat1, lon1, lat2, lon2) {
