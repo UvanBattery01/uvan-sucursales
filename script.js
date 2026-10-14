@@ -260,7 +260,7 @@ const ubicacionesUVAN = [
     lat: 19.3506632,
     lng: -99.0176759,
     maps: "https://maps.app.goo.gl/cK1w6S12ywzBXtAFA?g_st=ac"
-  }
+  },
 {
     nombre: "Zaragoza",
     lat: 19.3822630,
